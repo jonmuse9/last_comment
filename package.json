@@ -1,0 +1,31 @@
+{
+  "name": "jira-custom-field-ui-kit",
+  "version": "3.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "deploy-install": "forge deploy && forge install --site jellyfishinteractive.atlassian.net --product Jira --environment development --upgrade --non-interactive",
+    "deploy-install-tunnel": "forge deploy && forge install --site jellyfishinteractive.atlassian.net --product Jira --environment development --upgrade --non-interactive && forge tunnel",
+    "lint": "eslint src/**/* || npm run --silent hook-errors",
+    "hook-errors": "echo '\\x1b[31mThe build failed because a Forge UI hook is being used incorrectly. Forge UI hooks follow the same rules as React Hooks but have their own API definitions. See the Forge documentation for details on how to use Forge UI hooks.\n' && exit 1"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "node-fetch": "^3.3.2"
+  },
+  "dependencies": {
+    "@forge/api": "^5.2.0",
+    "@forge/bridge": "4.5.2",
+    "@forge/cache": "^0.13.2",
+    "@forge/events": "^1.0.2",
+    "@forge/react": "11.2.1",
+    "@forge/resolver": "^1.6.10",
+    "react": "^18.2.0"
+  },
+  "workspaces": [
+    "src/flowzia_resources"
+  ]
+}
