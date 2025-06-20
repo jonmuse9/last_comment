@@ -1,0 +1,153 @@
+{
+  "adminPage": {
+    "title": "Flowzira設定"
+  },
+  "gettingStarted": {
+    "title": "はじめに"
+  },
+  "projectSettings": {
+    "title": "Flowzira設定"
+  },
+  "customField": {
+    "lastComment": {
+      "name": "Flowzira最後のコメント",
+      "description": "課題の最後のコメントの内容を表示します。"
+    },
+    "commentCount": {
+      "name": "Flowziraコメント数",
+      "description": "課題のコメントの総数。"
+    },
+    "internalCommentCount": {
+      "name": "Flowzira内部コメント数",
+      "description": "課題の内部コメントの数。"
+    },
+    "lastCommentDate": {
+      "name": "Flowzira最後のコメント日時",
+      "description": "課題の最後のコメントの日時。"
+    },
+    "firstCommentDate": {
+      "name": "Flowzira最初のコメント日時",
+      "description": "課題の最初のコメントの日時。"
+    },
+    "lastCommenter": {
+      "name": "Flowzira最後のコメント者",
+      "description": "課題に最後にコメントした人。"
+    },
+    "lastCommenterIsAssignee": {
+      "name": "Flowzira最後のコメント者は担当者",
+      "description": "最後のコメント者が担当者かどうか。"
+    },
+    "lastCommenterIsReporter": {
+      "name": "Flowzira最後のコメント者は報告者",
+      "description": "最後のコメント者が報告者かどうか。"
+    },
+    "lastCommenterIsCreator": {
+      "name": "Flowzira最後のコメント者は作成者",
+      "description": "最後のコメント者が作成者かどうか。"
+    },
+    "lastAssigneeCommentDate": {
+      "name": "Flowzira担当者最後のコメント日時",
+      "description": "担当者の最後のコメントの日時。"
+    },
+    "firstComment": {
+      "name": "Flowzira最初のコメント",
+      "description": "課題の最初のコメント。"
+    },
+    "firstCommenter": {
+      "name": "Flowzira最初のコメント者",
+      "description": "最初のコメントをした人。"
+    },
+    "firstCommenterIsAssignee": {
+      "name": "Flowzira最初のコメント者は担当者",
+      "description": "最初のコメント者が担当者かどうか。"
+    },
+    "firstCommenterIsReporter": {
+      "name": "Flowzira最初のコメント者は報告者",
+      "description": "最初のコメント者が報告者かどうか。"
+    },
+    "firstCommenterIsCreator": {
+      "name": "Flowzira最初のコメント者は作成者",
+      "description": "最初のコメント者が作成者かどうか。"
+    },
+    "publicCommentCount": {
+      "name": "Flowzira公開コメント数",
+      "description": "課題の公開コメントの数"
+    },
+    "agentReplyCount": {
+      "name": "Flowziraエージェント返信数",
+      "description": "課題のエージェントからの返信数"
+    },
+    "customerReplyCount": {
+      "name": "Flowzira顧客返信数",
+      "description": "課題の顧客からの返信数"
+    },
+    "lastCommenterIsCustomer": {
+      "name": "Flowzira最後のコメント者は顧客",
+      "description": "課題の最後のコメント者が顧客かどうか"
+    },
+    "lastCommentIsInternal": {
+      "name": "Flowzira最後のコメントは内部",
+      "description": "課題の最後のコメントが内部かどうか"
+    },
+    "lastCommentIsAgentResponse": {
+      "name": "Flowzira最後のコメントはエージェント返信",
+      "description": "課題の最後のコメントがエージェントからの返信かどうか"
+    },
+    "lastAgentResponseDate": {
+      "name": "Flowzira最後のエージェント返信日時",
+      "description": "課題のエージェントからの最後の返信の日時"
+    },
+    "lastCustomerCommentDate": {
+      "name": "Flowzira顧客最後のコメント日時",
+      "description": "課題の顧客からの最後のコメントの日時"
+    }
+  },
+  "ui": {
+    "buttons": {
+      "save": "保存",
+      "cancel": "キャンセル",
+      "saving": "保存中...",
+      "submit": "送信",
+      "syncAll": "すべての課題を同期",
+      "forceStop": "🚨 緊急：すべての同期を強制停止",
+      "forceReset": "強制リセット"
+    },
+    "status": {
+      "error": "エラー",
+      "success": "成功",
+      "warning": "警告",
+      "loading": "読み込み中...",
+      "yes": "はい",
+      "no": "いいえ"
+    },
+    "messages": {
+      "settingsSaved": "設定が正常に保存されました！",
+      "allVisibilityRequired": "すべての表示設定の選択が必要です",
+      "unexpectedResponse": "サーバーからの予期しない応答。設定が保存されていない可能性があります。",
+      "failedToSave": "設定の保存に失敗しました",
+      "unknownError": "不明なエラー",
+      "unableToLoadSettings": "設定を読み込めません。デフォルト値を使用します。",
+      "failedToInitialize": "アプリケーションの初期化に失敗しました。",
+      "failedToInitializeSettings": "アプリケーション設定の初期化に失敗しました。",
+      "licenseNotActive": "ライセンスがアクティブではありません",
+      "syncCanTakeTime": "同期プロセスは完了まで30分以上かかる場合があります。同期が失敗した場合は、1時間後に再試行できます。",
+      "emptyValue": "—"
+    },
+    "forms": {
+      "jsmSettings": {
+        "title": "Jira Service Management設定",
+        "description": "表示フィルターは、カスタムフィールド値の構築に使用されるコメントを定義します。この機能はJira Service Managementでのみ有用です。",
+        "agentReplyCount": "エージェント返信数",
+        "lastCommentAgentResponse": "最後のコメントエージェント返信",
+        "getLastAgentResponseDate": "最後のエージェント返信日時を取得",
+        "pleaseSelectVisibility": "表示オプションを選択してください",
+        "pleaseSelectVisibilityFor": "以下の表示オプションを選択してください"
+      }
+    },
+    "visibility": {
+      "allComments": "すべてのコメント",
+      "publicOnly": "公開コメントのみ",
+      "internalOnly": "内部コメントのみ"
+    }
+  }
+}

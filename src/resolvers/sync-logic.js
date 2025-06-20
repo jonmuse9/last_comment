@@ -12,12 +12,12 @@ import {
 } from "./sync-helpers.js";
 
 /**
- * Calculates and optionally updates a custom field value for a Jira issue.
+ * Calculates and optionally updates a custom field value for a Jira work item.
  * This function maps field types to their calculation functions and handles API calls.
  *
- * @param {Object} issue - The Jira issue object containing id and key
+ * @param {Object} issue - The Jira work item object containing id and key
  * @param {Object} field - The custom field configuration object
- * @param {boolean} updateIssue - Whether to update the issue with the calculated value
+ * @param {boolean} updateIssue - Whether to update the work item with the calculated value
  * @param {Object} appSettings - Optional app settings for JSM visibility filtering
  * @param {number} throttleMs - Optional delay in milliseconds for API throttling
  * @returns {Promise<any>} The calculated field value or undefined if field not supported
@@ -85,7 +85,7 @@ export async function calculateFieldValue(
       );
     if (!res.ok) {
       const errorText = await res.text();
-      throw new Error(`Failed to update issue ${issue.key}: ${errorText}`);
+      throw new Error(`Failed to update work item ${issue.key}: ${errorText}`);
     }
     // Throttle if requested
     if (throttleMs > 0) {
@@ -97,15 +97,15 @@ export async function calculateFieldValue(
 }
 
 /**
- * Enqueues a single sync job to process all issues in a project.
+ * Enqueues a single sync job to process all work items in a project.
  * This replaces the old batch-by-batch approach to prevent race conditions.
  *
  * @param {Object} params - The sync job parameters
- * @param {number} params.totalIssues - Total number of issues to process
- * @param {number} params.batchSize - Number of issues to process per batch
+ * @param {number} params.totalIssues - Total number of work items to process
+ * @param {number} params.batchSize - Number of work items to process per batch
  * @param {string} params.projectId - The Jira project ID
  * @param {string} params.projectKey - The Jira project key
- * @param {string} params.jqlQuery - Optional JQL query to filter issues
+ * @param {string} params.jqlQuery - Optional JQL query to filter work items
  * @param {Object} params.appSettings - App settings for field visibility
  * @returns {Promise<string>} The queue job ID
  */
@@ -336,7 +336,7 @@ async function processFullSync(payload) {
           if (!res.ok) {
             const errorText = await res.text();
             throw new Error(
-              `Failed to update issue ${issue.key}: ${errorText}`
+              `Failed to update work item ${issue.key}: ${errorText}`
             );
           }
           issueApiCalls += 1; // Count the issue update API call
@@ -553,7 +553,9 @@ async function processSingleBatch(payload) {
           );
         if (!res.ok) {
           const errorText = await res.text();
-          throw new Error(`Failed to update issue ${issue.key}: ${errorText}`);
+          throw new Error(
+            `Failed to update work item ${issue.key}: ${errorText}`
+          );
         }
         issueApiCalls += 1; // Count the update call
       }

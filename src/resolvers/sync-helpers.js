@@ -20,7 +20,7 @@ export async function getSyncState() {
       ...state,
       isRunning: false,
       startTime: null,
-      processedIssues: 0,
+      processedWorkItems: 0,
       currentBatchStart: 0,
       errors: [],
       lastUpdated: Date.now(),
@@ -31,8 +31,8 @@ export async function getSyncState() {
     state || {
       isRunning: false,
       startTime: null,
-      totalIssues: 0,
-      processedIssues: 0,
+      totalWorkItems: 0,
+      processedWorkItems: 0,
       currentBatchStart: 0,
       errors: [],
       lastUpdated: null,
@@ -137,7 +137,7 @@ export async function releaseBatchLock(batchKey) {
  * @param {string} projectId - The Jira project ID
  * @param {string} projectKey - The Jira project key
  * @param {Object} updates - State updates to apply
- * @param {number} updates.processedIssuesIncrement - Number of issues to add to processed count
+ * @param {number} updates.processedWorkItemsIncrement - Number of work items to add to processed count
  * @param {number} updates.newCurrentBatchStart - New batch start index (only updates if greater)
  * @returns {Promise<Object>} The updated sync state
  */
@@ -180,11 +180,9 @@ export async function atomicUpdateSyncState(projectId, projectKey, updates) {
 
   try {
     // Get current state
-    const state = await getSyncState();
-
-    // Apply updates atomically
-    if (updates.processedIssuesIncrement) {
-      state.processedIssues += updates.processedIssuesIncrement;
+    const state = await getSyncState(); // Apply updates atomically
+    if (updates.processedWorkItemsIncrement) {
+      state.processedWorkItems += updates.processedWorkItemsIncrement;
     }
     if (updates.newCurrentBatchStart !== undefined) {
       // Only update if the new batch start is greater (prevents regression)

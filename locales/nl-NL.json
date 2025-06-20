@@ -1,0 +1,153 @@
+{
+  "adminPage": {
+    "title": "Flowzira Instellingen"
+  },
+  "gettingStarted": {
+    "title": "Aan de Slag"
+  },
+  "projectSettings": {
+    "title": "Flowzira Instellingen"
+  },
+  "customField": {
+    "lastComment": {
+      "name": "Flowzira Laatste Opmerking",
+      "description": "Toont de inhoud van de laatste opmerking op het werkitem."
+    },
+    "commentCount": {
+      "name": "Flowzira Aantal Opmerkingen",
+      "description": "Het totale aantal opmerkingen op het werkitem."
+    },
+    "internalCommentCount": {
+      "name": "Flowzira Aantal Interne Opmerkingen",
+      "description": "Het aantal interne opmerkingen op het werkitem."
+    },
+    "lastCommentDate": {
+      "name": "Flowzira Datum Laatste Opmerking",
+      "description": "De datum van de laatste opmerking op het werkitem."
+    },
+    "firstCommentDate": {
+      "name": "Flowzira Datum Eerste Opmerking",
+      "description": "De datum van de eerste opmerking op het werkitem."
+    },
+    "lastCommenter": {
+      "name": "Flowzira Laatste Reageerder",
+      "description": "De laatste persoon die heeft gereageerd op het werkitem."
+    },
+    "lastCommenterIsAssignee": {
+      "name": "Flowzira Laatste Reageerder is Toegewezene",
+      "description": "Of de laatste reageerder de toegewezene is."
+    },
+    "lastCommenterIsReporter": {
+      "name": "Flowzira Laatste Reageerder is Melder",
+      "description": "Of de laatste reageerder de melder is."
+    },
+    "lastCommenterIsCreator": {
+      "name": "Flowzira Laatste Reageerder is Aanmaker",
+      "description": "Of de laatste reageerder de aanmaker is."
+    },
+    "lastAssigneeCommentDate": {
+      "name": "Flowzira Datum Laatste Opmerking Toegewezene",
+      "description": "De datum van de laatste opmerking van de toegewezene."
+    },
+    "firstComment": {
+      "name": "Flowzira Eerste Opmerking",
+      "description": "De eerste opmerking op het werkitem."
+    },
+    "firstCommenter": {
+      "name": "Flowzira Eerste Reageerder",
+      "description": "De persoon die de eerste opmerking heeft gemaakt."
+    },
+    "firstCommenterIsAssignee": {
+      "name": "Flowzira Eerste Reageerder is Toegewezene",
+      "description": "Of de eerste reageerder de toegewezene is."
+    },
+    "firstCommenterIsReporter": {
+      "name": "Flowzira Eerste Reageerder is Melder",
+      "description": "Of de eerste reageerder de melder is."
+    },
+    "firstCommenterIsCreator": {
+      "name": "Flowzira Eerste Reageerder is Aanmaker",
+      "description": "Of de eerste reageerder de aanmaker is."
+    },
+    "publicCommentCount": {
+      "name": "Flowzira Aantal Openbare Opmerkingen",
+      "description": "Het aantal openbare opmerkingen op het werkitem"
+    },
+    "agentReplyCount": {
+      "name": "Flowzira Aantal Agent Reacties",
+      "description": "Het aantal reacties van agenten op het werkitem"
+    },
+    "customerReplyCount": {
+      "name": "Flowzira Aantal Klant Reacties",
+      "description": "Het aantal reacties van klanten op het werkitem"
+    },
+    "lastCommenterIsCustomer": {
+      "name": "Flowzira Laatste Reageerder is Klant",
+      "description": "Of de laatste reageerder op het werkitem een klant is"
+    },
+    "lastCommentIsInternal": {
+      "name": "Flowzira Laatste Opmerking is Intern",
+      "description": "Of de laatste opmerking op het werkitem intern is"
+    },
+    "lastCommentIsAgentResponse": {
+      "name": "Flowzira Laatste Opmerking is Agent Reactie",
+      "description": "Of de laatste opmerking op het werkitem een reactie van een agent is"
+    },
+    "lastAgentResponseDate": {
+      "name": "Flowzira Datum Laatste Agent Reactie",
+      "description": "De datum van de laatste reactie van een agent op het werkitem"
+    },
+    "lastCustomerCommentDate": {
+      "name": "Flowzira Datum Laatste Klant Opmerking",
+      "description": "De datum van de laatste opmerking van een klant op het werkitem"
+    }
+  },
+  "ui": {
+    "buttons": {
+      "save": "Opslaan",
+      "cancel": "Annuleren",
+      "saving": "Opslaan...",
+      "submit": "Verzenden",
+      "syncAll": "Alle Werkitems Synchroniseren",
+      "forceStop": "🚨 Noodstop: Alle Synchronisaties Stoppen",
+      "forceReset": "Geforceerd Resetten"
+    },
+    "status": {
+      "error": "Fout",
+      "success": "Succes",
+      "warning": "Waarschuwing",
+      "loading": "Laden...",
+      "yes": "Ja",
+      "no": "Nee"
+    },
+    "messages": {
+      "settingsSaved": "Instellingen succesvol opgeslagen!",
+      "allVisibilityRequired": "Alle zichtbaarheidsselecties zijn vereist",
+      "unexpectedResponse": "Onverwacht antwoord van de server. Instellingen zijn mogelijk niet opgeslagen.",
+      "failedToSave": "Opslaan van instellingen mislukt",
+      "unknownError": "Onbekende fout",
+      "unableToLoadSettings": "Kan instellingen niet laden. Standaardwaarden worden gebruikt.",
+      "failedToInitialize": "Initialisatie van applicatie mislukt.",
+      "failedToInitializeSettings": "Initialisatie van applicatie-instellingen mislukt.",
+      "licenseNotActive": "Licentie is niet actief",
+      "syncCanTakeTime": "Het synchronisatieproces kan meer dan 30 minuten duren om te voltooien. Als de synchronisatie mislukt, kan het na 1 uur opnieuw worden geprobeerd.",
+      "emptyValue": "—"
+    },
+    "forms": {
+      "jsmSettings": {
+        "title": "Jira Service Management Instellingen",
+        "description": "Het Zichtbaarheidsfilter definieert de opmerkingen die worden gebruikt om de aangepaste veldwaarden op te bouwen. Deze functie is alleen nuttig in Jira Service Management.",
+        "agentReplyCount": "Aantal Agent Reacties",
+        "lastCommentAgentResponse": "Laatste Opmerking Agent Reactie",
+        "getLastAgentResponseDate": "Datum Laatste Agent Reactie Ophalen",
+        "pleaseSelectVisibility": "Selecteer een zichtbaarheidsoptie",
+        "pleaseSelectVisibilityFor": "Selecteer een zichtbaarheidsoptie voor"
+      }
+    },
+    "visibility": {
+      "allComments": "Alle opmerkingen",
+      "publicOnly": "Alleen openbare opmerkingen",
+      "internalOnly": "Alleen interne opmerkingen"
+    }
+  }
+}

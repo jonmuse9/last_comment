@@ -11,6 +11,7 @@ import {
   Textfield,
   xcss,
   Icon,
+  useTranslation,
 } from "@forge/react";
 import { invoke, view } from "@forge/bridge";
 import boxBorderStyle from "./seeBorders";
@@ -24,12 +25,14 @@ const ProjectAdminSync = ({
   isGlobalAdmin = false,
   licenseActive = true,
 }) => {
+  const { t } = useTranslation();
+
   const [jqlQuery, setJqlQuery] = useState("");
   const [syncState, setSyncState] = useState({
     isRunning: false,
     startTime: null,
-    totalIssues: 0,
-    processedIssues: 0,
+    totalWorkItems: 0,
+    processedWorkItems: 0,
     currentBatchStart: 0,
     errors: [],
     lastUpdated: null,
@@ -98,7 +101,7 @@ const ProjectAdminSync = ({
       const state = await invoke("startSync", payload);
       setSyncState(state);
       setSyncPolling(true);
-      setSyncStatusMsg("Sync started");
+      setSyncStatusMsg(t("ui.sync.status.syncStarted", "Sync started"));
       // No need to call enqueueSyncBatches here; handled by backend
     } catch (e) {
       setSyncError(e.message);
@@ -112,7 +115,7 @@ const ProjectAdminSync = ({
       const state = await invoke("stopSync");
       setSyncState(state);
       setSyncPolling(false);
-      setSyncStatusMsg("Sync stopped");
+      setSyncStatusMsg(t("ui.sync.status.syncStopped", "Sync stopped"));
     } catch (e) {
       setSyncError(e.message);
     }
@@ -123,7 +126,10 @@ const ProjectAdminSync = ({
     setSyncStatusMsg("");
     if (
       window.confirm(
-        "Are you sure you want to force reset? This will clear all sync state and history."
+        t(
+          "ui.sync.confirmations.forceReset",
+          "Are you sure you want to force reset? This will clear all sync state and history."
+        )
       )
     ) {
       try {
@@ -131,39 +137,50 @@ const ProjectAdminSync = ({
         setSyncState({
           isRunning: false,
           startTime: null,
-          totalIssues: 0,
-          processedIssues: 0,
+          totalWorkItems: 0,
+          processedWorkItems: 0,
           currentBatchStart: 0,
           errors: [],
           lastUpdated: null,
         });
         setSyncLog([]);
-        setSyncStatusMsg("Sync state has been reset successfully");
+        setSyncStatusMsg(
+          t(
+            "ui.sync.status.syncResetSuccess",
+            "Sync state has been reset successfully"
+          )
+        );
       } catch (e) {
-        setSyncError(`Failed to reset sync state: ${e.message}`);
+        setSyncError(
+          `${t(
+            "ui.sync.errors.failedToReset",
+            "Failed to reset sync state"
+          )}: ${e.message}`
+        );
       }
     }
   };
   const handleJqlQueryChange = (event) => {
     setJqlQuery(event.target.value);
   };
-
   const percent =
-    syncState.totalIssues > 0
-      ? Math.round((syncState.processedIssues / syncState.totalIssues) * 100)
+    syncState.totalWorkItems > 0
+      ? Math.round(
+          (syncState.processedWorkItems / syncState.totalWorkItems) * 100
+        )
       : 0;
 
   let eta = null;
   if (
     syncState.isRunning &&
-    syncState.processedIssues > 0 &&
+    syncState.processedWorkItems > 0 &&
     syncState.startTime
   ) {
     const elapsed =
       (Date.now() - new Date(syncState.startTime).getTime()) / 1000;
-    const avgPerIssue = elapsed / syncState.processedIssues;
-    const remaining = syncState.totalIssues - syncState.processedIssues;
-    eta = Math.round(avgPerIssue * remaining);
+    const avgPerWorkItem = elapsed / syncState.processedWorkItems;
+    const remaining = syncState.totalWorkItems - syncState.processedWorkItems;
+    eta = Math.round(avgPerWorkItem * remaining);
   }
 
   const handleForceStopAllSyncs = async () => {
@@ -171,7 +188,10 @@ const ProjectAdminSync = ({
     setSyncStatusMsg("");
     if (
       window.confirm(
-        "⚠️ EMERGENCY STOP: This will immediately stop ALL running sync processes and clear the queue. Use this only if syncs are stuck or processing duplicates. Are you sure?"
+        t(
+          "ui.sync.confirmations.emergencyStop",
+          "⚠️ EMERGENCY STOP: This will immediately stop ALL running sync processes and clear the queue. Use this only if syncs are stuck or processing duplicates. Are you sure?"
+        )
       )
     ) {
       try {
@@ -180,8 +200,8 @@ const ProjectAdminSync = ({
           setSyncState({
             isRunning: false,
             startTime: null,
-            totalIssues: 0,
-            processedIssues: 0,
+            totalWorkItems: 0,
+            processedWorkItems: 0,
             currentBatchStart: 0,
             errors: [],
             lastUpdated: null,
@@ -189,11 +209,19 @@ const ProjectAdminSync = ({
           setSyncLog([]);
           setSyncPolling(false);
           setSyncStatusMsg(
-            "✅ Emergency stop completed: All syncs stopped and queue cleared"
+            t(
+              "ui.sync.status.emergencyStopSuccess",
+              "✅ Emergency stop completed: All syncs stopped and queue cleared"
+            )
           );
         }
       } catch (e) {
-        setSyncError(`Failed to force stop syncs: ${e.message}`);
+        setSyncError(
+          `${t(
+            "ui.sync.errors.failedToForceStop",
+            "Failed to force stop syncs"
+          )}: ${e.message}`
+        );
       }
     }
   };
@@ -208,33 +236,43 @@ const ProjectAdminSync = ({
       })}
     >
       {" "}
-      <Heading size="medium">Bulk Sync Custom Fields</Heading>
+      <Heading size="medium">
+        {t("ui.sync.title", "Bulk Sync Custom Fields")}
+      </Heading>
       <Text>
-        Use this tool to backfill calculated custom field values for{" "}
         {isGlobalAdmin
-          ? "work items across all projects"
-          : "all work items in this project"}
-        . This is required if you want{" "}
-        {isGlobalAdmin ? "work items" : "old work items"} to have up-to-date
-        values. Issues will automatically have the calculated values applied
-        when comments are added or deleted.
+          ? t(
+              "ui.sync.description.globalAdmin",
+              "Use this tool to backfill calculated custom field values for work items across all projects. This is required if you want work items to have up-to-date values. Issues will automatically have the calculated values applied when comments are added or deleted."
+            )
+          : t(
+              "ui.sync.description.projectAdmin",
+              "Use this tool to backfill calculated custom field values for all work items in this project. This is required if you want old work items to have up-to-date values. Issues will automatically have the calculated values applied when comments are added or deleted."
+            )}
       </Text>{" "}
       <Box xcss={xcss({ margin: "space.100" })}>
+        {" "}
         {!licenseActive && (
           <SectionMessage appearance="error">
             <Text>
-              Sync functionality is disabled due to invalid license. Please
-              ensure your license is active to use the sync feature.
+              {t(
+                "ui.sync.licenseError",
+                "Sync functionality is disabled due to invalid license. Please ensure your license is active to use the sync feature."
+              )}
             </Text>
           </SectionMessage>
-        )}
+        )}{" "}
         <SectionMessage appearance="info">
           <Text>
-            This sync tool can only process a maximum of 5,000 work items and
-            prioritizes the most recent work items.{" "}
             {isGlobalAdmin
-              ? "Use JQL queries to filter issues from specific projects or issue types."
-              : "If your project has more than 5,000 work items, consider using JQL to filter the issues as needed."}
+              ? t(
+                  "ui.sync.infoMessage.globalAdmin",
+                  "This sync tool can only process a maximum of 5,000 work items and prioritizes the most recent work items. Use JQL queries to filter issues from specific projects or issue types."
+                )
+              : t(
+                  "ui.sync.infoMessage.projectAdmin",
+                  "This sync tool can only process a maximum of 5,000 work items and prioritizes the most recent work items. If your project has more than 5,000 work items, consider using JQL to filter the issues as needed."
+                )}
           </Text>
         </SectionMessage>{" "}
       </Box>
@@ -243,8 +281,11 @@ const ProjectAdminSync = ({
           <Box xcss={xcss({ marginBottom: "space.300", ...boxBorderStyle })}>
             {" "}
             <Stack space="space.100">
+              {" "}
               <Label labelFor="jql-query-input">
-                JQL Query {isGlobalAdmin ? "(required)" : "(optional)"}
+                {isGlobalAdmin
+                  ? t("ui.sync.jql.label.required", "JQL Query (required)")
+                  : t("ui.sync.jql.label.optional", "JQL Query (optional)")}
               </Label>{" "}
               <Textfield
                 id="jql-query-input"
@@ -253,8 +294,14 @@ const ProjectAdminSync = ({
                 onChange={handleJqlQueryChange}
                 placeholder={
                   isGlobalAdmin
-                    ? "Enter JQL query to specify which issues to sync"
-                    : "Enter JQL query to filter issues"
+                    ? t(
+                        "ui.sync.jql.placeholder.globalAdmin",
+                        "Enter JQL query to specify which issues to sync"
+                      )
+                    : t(
+                        "ui.sync.jql.placeholder.projectAdmin",
+                        "Enter JQL query to filter issues"
+                      )
                 }
                 elemBeforeInput={
                   <Box
@@ -265,10 +312,17 @@ const ProjectAdminSync = ({
                 }
               />
               <Box xcss={{ marginTop: "space.050", marginRight: "space.100" }}>
+                {" "}
                 <Text size="small" as="em">
                   {isGlobalAdmin
-                    ? "JQL query is required for global sync. Use project keys or other filters to specify which issues to process."
-                    : "Optional JQL query. Leave blank to process all issues in project. This filter can only be used to search for work items in this project."}
+                    ? t(
+                        "ui.sync.jql.helpText.globalAdmin",
+                        "JQL query is required for global sync. Use project keys or other filters to specify which issues to process."
+                      )
+                    : t(
+                        "ui.sync.jql.helpText.projectAdmin",
+                        "Optional JQL query. Leave blank to process all issues in project. This filter can only be used to search for work items in this project."
+                      )}
                 </Text>
               </Box>
             </Stack>
@@ -280,8 +334,8 @@ const ProjectAdminSync = ({
               onClick={handleStopSync}
               isDisabled={!syncState.isRunning || !licenseActive}
             >
-              Stop Sync
-            </Button>{" "}
+              {t("ui.sync.buttons.stopSync", "Stop Sync")}
+            </Button>
             <Button
               appearance="primary"
               onClick={handleStartSync}
@@ -292,7 +346,9 @@ const ProjectAdminSync = ({
                 (isGlobalAdmin ? !jqlQuery.trim() : !projectId)
               }
             >
-              {syncState.isRunning ? "Sync Running..." : "Start Sync"}
+              {syncState.isRunning
+                ? t("ui.sync.buttons.syncRunning", "Sync Running...")
+                : t("ui.sync.buttons.startSync", "Start Sync")}
             </Button>
           </Inline>
         </Stack>
@@ -317,20 +373,21 @@ const ProjectAdminSync = ({
                   ...boxBorderStyle,
                 })}
               />
-            </Box>
+            </Box>{" "}
             <Text>
-              {syncState.processedIssues} / {syncState.totalIssues} work items
-              processed ({percent}%)
-              {eta !== null && `, ETA: ${eta}s`}
+              {syncState.processedWorkItems} / {syncState.totalWorkItems}{" "}
+              {t("ui.sync.progress.workItemsProcessed", "work items processed")}{" "}
+              ({percent}%)
+              {eta !== null && `, ${t("ui.sync.progress.eta", "ETA")}: ${eta}s`}
             </Text>
             <Text>
-              Status:{" "}
+              {t("ui.status.status", "Status")}:{" "}
               {syncState.isRunning
-                ? "Running"
-                : syncState.processedIssues === syncState.totalIssues &&
-                  syncState.totalIssues > 0
-                ? "Completed"
-                : "Idle"}
+                ? t("ui.sync.status.running", "Running")
+                : syncState.processedWorkItems === syncState.totalWorkItems &&
+                  syncState.totalWorkItems > 0
+                ? t("ui.sync.status.completed", "Completed")
+                : t("ui.sync.status.idle", "Idle")}
             </Text>
           </>
         )}
@@ -348,7 +405,8 @@ const ProjectAdminSync = ({
           ...boxBorderStyle,
         })}
       >
-        <Text>Sync History:</Text>
+        {" "}
+        <Text>{t("ui.sync.history.title", "Sync History:")}</Text>
         <Box
           xcss={xcss({
             maxHeight: 120,
@@ -359,14 +417,23 @@ const ProjectAdminSync = ({
             ...boxBorderStyle,
           })}
         >
-          {syncLog.length === 0 && <Text>No sync history yet.</Text>}
+          {syncLog.length === 0 && (
+            <Text>
+              {t("ui.sync.history.noHistory", "No sync history yet.")}
+            </Text>
+          )}
           {syncLog.map((entry, i) => (
             <Box key={i} xcss={xcss({ ...boxBorderStyle })}>
               <Text>
+                {" "}
                 {new Date(entry.timestamp).toLocaleString()} -{" "}
                 {entry.type ? `Sync ${entry.type} ` : ""}
                 {entry.issueKey ? ` (${entry.issueKey})` : ""}
-                {entry.projectKey ? `: Project: ${entry.projectKey}` : ""}
+                {entry.projectKey
+                  ? `: ${t("ui.sync.history.project", "Project")}: ${
+                      entry.projectKey
+                    }`
+                  : ""}
                 {entry.projectId ? ` (${entry.projectId})` : ""}
                 {entry.error ? `: ${entry.error}` : ""}
               </Text>
@@ -375,10 +442,13 @@ const ProjectAdminSync = ({
         </Box>
         {syncState.isRunning && (
           <Box xcss={xcss({ marginTop: "space.300", ...boxBorderStyle })}>
+            {" "}
             <SectionMessage appearance="warning">
               <Text>
-                The sync process can take over 30 minutes to complete. If the
-                sync fails to complete, it can be reattempted after 1 hour.
+                {t(
+                  "ui.sync.warnings.timeWarning",
+                  "The sync process can take over 30 minutes to complete. If the sync fails to complete, it can be reattempted after 1 hour."
+                )}
               </Text>
             </SectionMessage>
           </Box>
@@ -388,19 +458,23 @@ const ProjectAdminSync = ({
       <Inline space="space.100">
         {environmentType === "DEVELOPMENT" && (
           <>
+            {" "}
             <Button
               appearance="danger"
               onClick={handleForceStopAllSyncs}
               isDisabled={!licenseActive}
             >
-              🚨 Emergency Force Stop All Syncs
+              {t(
+                "ui.sync.buttons.forceStop",
+                "🚨 Emergency Force Stop All Syncs"
+              )}
             </Button>
             <Button
               appearance="danger"
               onClick={handleForceReset}
               isDisabled={syncState.isRunning || !licenseActive}
             >
-              Force Reset
+              {t("ui.sync.buttons.forceReset", "Force Reset")}
             </Button>
           </>
         )}

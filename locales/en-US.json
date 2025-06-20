@@ -1,0 +1,267 @@
+{
+  "adminPage": {
+    "title": "Flowzira Settings"
+  },
+  "gettingStarted": {
+    "title": "Getting Started",
+    "heading": "A comprehensive set of comment analytics and insights for Jira",
+    "description": "Flowzira provides powerful, no-code custom fields and analytics to help you and your team understand and manage conversations in Jira work items. Get up and running in no time—no code required!",
+    "features": {
+      "simple": {
+        "title": "Simple",
+        "description": "Effortlessly generate custom, calculated fields without any coding required."
+      },
+      "commentAnalytics": {
+        "title": "Comment Analytics",
+        "description": "Create various calculated fields to improve visibility and make work items more searchable. Fields are updated automatically!"
+      },
+      "dynamicInsights": {
+        "title": "Dynamic Insights",
+        "description": "Custom field values are always up-to-date, so your searches and reports are accurate and actionable."
+      }
+    },
+    "quickStart": {
+      "title": "Quick start",
+      "description": "Get started with Flowzira in just a few clicks:",
+      "steps": {
+        "step1": "Configure your custom fields in project settings",
+        "step2": "Add the fields to your work item view screens",
+        "step3": "Start analyzing your team's communication patterns"
+      }
+    },
+    "support": {
+      "title": "We are here to help",
+      "resourcesTitle": "Support and Resources",
+      "resourcesDescription": "Check out these resources that will guide you through the simple process of setting up comment analytics and custom fields.",
+      "supportRequest": "Support Request",
+      "userGuide": "User Guide"
+    },
+    "feedback": {
+      "title": "Let us know what you think",
+      "description": "If you found Flowzira helpful, let us know! We welcome your feedback.",
+      "writeReview": "Write a review"
+    }
+  },
+  "projectSettings": {
+    "title": "Flowzira Settings"
+  },
+  "customField": {
+    "lastComment": {
+      "name": "Flowzira Last Comment",
+      "description": "Displays the content of the last comment on the work item."
+    },
+    "commentCount": {
+      "name": "Flowzira Comment Count",
+      "description": "The total number of comments on the work item."
+    },
+    "internalCommentCount": {
+      "name": "Flowzira Internal Comment Count",
+      "description": "The number of internal comments on the work item."
+    },
+    "lastCommentDate": {
+      "name": "Flowzira Last Comment Date",
+      "description": "The date of the last comment on the work item."
+    },
+    "firstCommentDate": {
+      "name": "Flowzira First Comment Date",
+      "description": "The date of the first comment on the work item."
+    },
+    "lastCommenter": {
+      "name": "Flowzira Last Commenter",
+      "description": "The last person to comment on the work item."
+    },
+    "lastCommenterIsAssignee": {
+      "name": "Flowzira Last Commenter is Assignee",
+      "description": "Whether the last commenter is the assignee."
+    },
+    "lastCommenterIsReporter": {
+      "name": "Flowzira Last Commenter is Reporter",
+      "description": "Whether the last commenter is the reporter."
+    },
+    "lastCommenterIsCreator": {
+      "name": "Flowzira Last Commenter is Creator",
+      "description": "Whether the last commenter is the creator."
+    },
+    "lastAssigneeCommentDate": {
+      "name": "Flowzira Last Assignee Comment Date",
+      "description": "The date of the last comment by the assignee."
+    },
+    "firstComment": {
+      "name": "Flowzira First Comment",
+      "description": "The first comment on the work item."
+    },
+    "firstCommenter": {
+      "name": "Flowzira First Commenter",
+      "description": "The person who made the first comment."
+    },
+    "firstCommenterIsAssignee": {
+      "name": "Flowzira First Commenter is Assignee",
+      "description": "Whether the first commenter is the assignee."
+    },
+    "firstCommenterIsReporter": {
+      "name": "Flowzira First Commenter is Reporter",
+      "description": "Whether the first commenter is the reporter."
+    },
+    "firstCommenterIsCreator": {
+      "name": "Flowzira First Commenter is Creator",
+      "description": "Whether the first commenter is the creator."
+    },
+    "publicCommentCount": {
+      "name": "Flowzira Public Comment Count",
+      "description": "The number of public comments on the work item"
+    },
+    "agentReplyCount": {
+      "name": "Flowzira Agent Reply Count",
+      "description": "The number of replies from agents on the work item"
+    },
+    "customerReplyCount": {
+      "name": "Flowzira Customer Reply Count",
+      "description": "The number of replies from customers on the work item"
+    },
+    "lastCommenterIsCustomer": {
+      "name": "Flowzira Last Commenter is Customer",
+      "description": "Whether the last commenter on the work item is a customer"
+    },
+    "lastCommentIsInternal": {
+      "name": "Flowzira Last Comment is Internal",
+      "description": "Whether the last comment on the work item is internal"
+    },
+    "lastCommentIsAgentResponse": {
+      "name": "Flowzira Last Comment is Agent Response",
+      "description": "Whether the last comment on the work item is a response from an agent"
+    },
+    "lastAgentResponseDate": {
+      "name": "Flowzira Last Agent Response Date",
+      "description": "The date of the last response from an agent on the work item"
+    },
+    "lastCustomerCommentDate": {
+      "name": "Flowzira Last Customer Comment Date",
+      "description": "The date of the last comment from a customer on the work item"
+    }
+  },
+  "ui": {
+    "buttons": {
+      "save": "Save",
+      "cancel": "Cancel",
+      "saving": "Saving...",
+      "submit": "Submit",
+      "syncAll": "Sync All Work Items",
+      "forceStop": "🚨 Emergency Force Stop All Syncs",
+      "forceReset": "Force Reset"
+    },
+    "status": {
+      "error": "Error",
+      "success": "Success",
+      "warning": "Warning",
+      "loading": "Loading...",
+      "yes": "Yes",
+      "no": "No",
+      "status": "Status"
+    },
+    "messages": {
+      "settingsSaved": "Settings saved successfully!",
+      "allVisibilityRequired": "All visibility selections are required",
+      "unexpectedResponse": "Unexpected response from server. Settings might not have been saved.",
+      "failedToSave": "Failed to save settings",
+      "unknownError": "Unknown error",
+      "unableToLoadSettings": "Unable to load settings. Using default values.",
+      "failedToInitialize": "Failed to initialize application.",
+      "failedToInitializeSettings": "Failed to initialize application settings.",
+      "licenseNotActive": "License is not active",
+      "rateLimited": "The app is being rate limited by Atlassian. Please try again later.",
+      "syncCanTakeTime": "The sync process can take over 30 minutes to complete. If the sync fails to complete, it can be reattempted after 1 hour.",
+      "emptyValue": "—"
+    },
+    "forms": {
+      "jsmSettings": {
+        "title": "Jira Service Management Settings",
+        "description": "The visibility Filter defines the comments used to build the custom field values. This feature is only useful in Jira Service Management.",
+        "agentReplyCount": "Agent Reply Count",
+        "lastCommentAgentResponse": "Last Comment Agent Response",
+        "getLastAgentResponseDate": "Get Last Agent Response Date",
+        "pleaseSelectVisibility": "Please select a visibility option",
+        "pleaseSelectVisibilityFor": "Please select a visibility option for"
+      }
+    },
+    "links": {
+      "documentation": "Documentation",
+      "support": "Flowzira Support"
+    },
+    "sync": {
+      "title": "Bulk Sync Custom Fields",
+      "description": {
+        "globalAdmin": "Use this tool to backfill calculated custom field values for work items across all projects. This is required if you want work items to have up-to-date values. Work items will automatically have the calculated values applied when comments are added or deleted.",
+        "projectAdmin": "Use this tool to backfill calculated custom field values for all work items in this project. This is required if you want old work items to have up-to-date values. Work items will automatically have the calculated values applied when comments are added or deleted."
+      },
+      "licenseError": "Sync functionality is disabled due to invalid license. Please ensure your license is active to use the sync feature.",
+      "infoMessage": {
+        "globalAdmin": "This sync tool can only process a maximum of 5,000 work items and prioritizes the most recent work items. Use JQL queries to filter work items from specific projects or work item types.",
+        "projectAdmin": "This sync tool can only process a maximum of 5,000 work items and prioritizes the most recent work items. If your project has more than 5,000 work items, consider using JQL to filter the work items as needed."
+      },
+      "jql": {
+        "label": {
+          "required": "JQL Query (required)",
+          "optional": "JQL Query (optional)"
+        },
+        "placeholder": {
+          "globalAdmin": "Enter JQL query to specify which work items to sync",
+          "projectAdmin": "Enter JQL query to filter work items"
+        },
+        "helpText": {
+          "globalAdmin": "JQL query is required for global sync. Use project keys or other filters to specify which work items to process.",
+          "projectAdmin": "Optional JQL query. Leave blank to process all work items in project. This filter can only be used to search for work items in this project."
+        }
+      },
+      "buttons": {
+        "startSync": "Start Sync",
+        "stopSync": "Stop Sync",
+        "syncRunning": "Sync Running...",
+        "forceStop": "🚨 Emergency Force Stop All Syncs",
+        "forceReset": "Force Reset"
+      },
+      "progress": {
+        "workItemsProcessed": "work items processed",
+        "eta": "ETA"
+      },
+      "status": {
+        "running": "Running",
+        "completed": "Completed",
+        "idle": "Idle",
+        "syncStarted": "Sync started",
+        "syncStopped": "Sync stopped",
+        "syncResetSuccess": "Sync state has been reset successfully",
+        "emergencyStopSuccess": "✅ Emergency stop completed: All syncs stopped and queue cleared"
+      },
+      "errors": {
+        "failedToReset": "Failed to reset sync state",
+        "failedToForceStop": "Failed to force stop syncs"
+      },
+      "history": {
+        "title": "Sync History:",
+        "noHistory": "No sync history yet.",
+        "project": "Project"
+      },
+      "warnings": {
+        "timeWarning": "The sync process can take over 30 minutes to complete. If the sync fails to complete, it can be reattempted after 1 hour."
+      },
+      "confirmations": {
+        "forceReset": "Are you sure you want to force reset? This will clear all sync state and history.",
+        "emergencyStop": "⚠️ EMERGENCY STOP: This will immediately stop ALL running sync processes and clear the queue. Use this only if syncs are stuck or processing duplicates. Are you sure?"
+      }
+    },
+    "visibility": {
+      "allComments": "All comments",
+      "publicOnly": "Public comments only",
+      "internalOnly": "Internal comments only"
+    }
+  },
+  "flowzira": {
+    "license": {
+      "errorTitle": "License validation error",
+      "errorMessage": "The license for this app is inactive. The values of the custom fields will not automatically calculate without an active license and data could be lost. This should be resolved as soon as possible. Please contact your Jira administrator."
+    },
+    "loading": {
+      "settings": "Loading settings..."
+    }
+  }
+}

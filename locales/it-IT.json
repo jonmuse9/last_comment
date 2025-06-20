@@ -1,0 +1,190 @@
+{
+  "adminPage": {
+    "title": "Impostazioni Flowzira"
+  },
+  "gettingStarted": {
+    "title": "Guida Introduttiva",
+    "heading": "Un set completo di analisi e insights sui commenti per Jira",
+    "description": "Flowzira fornisce campi personalizzati e analisi potenti, senza codice, per aiutare te e il tuo team a comprendere e gestire le conversazioni negli elementi di lavoro di Jira. Inizia in poco tempo—nessun codice richiesto!",
+    "features": {
+      "simple": {
+        "title": "Semplice",
+        "description": "Genera facilmente campi personalizzati calcolati senza alcuna codifica richiesta."
+      },
+      "commentAnalytics": {
+        "title": "Analisi dei Commenti",
+        "description": "Crea vari campi calcolati per migliorare la visibilità e rendere gli elementi di lavoro più ricercabili. I campi vengono aggiornati automaticamente!"
+      },
+      "dynamicInsights": {
+        "title": "Insights Dinamici",
+        "description": "I valori dei campi personalizzati sono sempre aggiornati, quindi le tue ricerche e report sono accurati e attuabili."
+      }
+    },
+    "quickStart": {
+      "title": "Avvio rapido",
+      "description": "Inizia con Flowzira in pochi clic:",
+      "steps": {
+        "step1": "Configura i tuoi campi personalizzati nelle impostazioni del progetto",
+        "step2": "Aggiungi i campi alle tue schermate di visualizzazione elementi di lavoro",
+        "step3": "Inizia ad analizzare i modelli di comunicazione del tuo team"
+      }
+    },
+    "support": {
+      "title": "Siamo qui per aiutare",
+      "resourcesTitle": "Supporto e Risorse",
+      "resourcesDescription": "Consulta queste risorse che ti guideranno attraverso il semplice processo di configurazione delle analisi dei commenti e dei campi personalizzati.",
+      "supportRequest": "Richiesta di Supporto",
+      "userGuide": "Guida Utente"
+    },
+    "feedback": {
+      "title": "Dicci cosa ne pensi",
+      "description": "Se hai trovato utile Flowzira, faccelo sapere! Accogliamo il tuo feedback.",
+      "writeReview": "Scrivi una recensione"
+    }
+  },
+  "projectSettings": {
+    "title": "Impostazioni Flowzira"
+  },
+  "customField": {
+    "lastComment": {
+      "name": "Flowzira Ultimo Commento",
+      "description": "Mostra il contenuto dell'ultimo commento sull'elemento di lavoro."
+    },
+    "commentCount": {
+      "name": "Flowzira Numero di Commenti",
+      "description": "Il numero totale di commenti sull'elemento di lavoro."
+    },
+    "internalCommentCount": {
+      "name": "Flowzira Numero di Commenti Interni",
+      "description": "Il numero di commenti interni sull'elemento di lavoro."
+    },
+    "lastCommentDate": {
+      "name": "Flowzira Data Ultimo Commento",
+      "description": "La data dell'ultimo commento sull'elemento di lavoro."
+    },
+    "firstCommentDate": {
+      "name": "Flowzira Data Primo Commento",
+      "description": "La data del primo commento sull'elemento di lavoro."
+    },
+    "lastCommenter": {
+      "name": "Flowzira Ultimo Commentatore",
+      "description": "L'ultima persona che ha commentato l'elemento di lavoro."
+    },
+    "lastCommenterIsAssignee": {
+      "name": "Flowzira Ultimo Commentatore è l'Assegnatario",
+      "description": "Se l'ultimo commentatore è l'assegnatario."
+    },
+    "lastCommenterIsReporter": {
+      "name": "Flowzira Ultimo Commentatore è il Segnalatore",
+      "description": "Se l'ultimo commentatore è il segnalatore."
+    },
+    "lastCommenterIsCreator": {
+      "name": "Flowzira Ultimo Commentatore è il Creatore",
+      "description": "Se l'ultimo commentatore è il creatore."
+    },
+    "lastAssigneeCommentDate": {
+      "name": "Flowzira Data Ultimo Commento Assegnatario",
+      "description": "La data dell'ultimo commento dell'assegnatario."
+    },
+    "firstComment": {
+      "name": "Flowzira Primo Commento",
+      "description": "Il primo commento sulla segnalazione."
+    },
+    "firstCommenter": {
+      "name": "Flowzira Primo Commentatore",
+      "description": "La persona che ha fatto il primo commento."
+    },
+    "firstCommenterIsAssignee": {
+      "name": "Flowzira Primo Commentatore è l'Assegnatario",
+      "description": "Se il primo commentatore è l'assegnatario."
+    },
+    "firstCommenterIsReporter": {
+      "name": "Flowzira Primo Commentatore è il Segnalatore",
+      "description": "Se il primo commentatore è il segnalatore."
+    },
+    "firstCommenterIsCreator": {
+      "name": "Flowzira Primo Commentatore è il Creatore",
+      "description": "Se il primo commentatore è il creatore."
+    },
+    "publicCommentCount": {
+      "name": "Flowzira Numero di Commenti Pubblici",
+      "description": "Il numero di commenti pubblici sulla segnalazione"
+    },
+    "agentReplyCount": {
+      "name": "Flowzira Numero di Risposte Agente",
+      "description": "Il numero di risposte degli agenti sulla segnalazione"
+    },
+    "customerReplyCount": {
+      "name": "Flowzira Numero di Risposte Cliente",
+      "description": "Il numero di risposte dei clienti sulla segnalazione"
+    },
+    "lastCommenterIsCustomer": {
+      "name": "Flowzira Ultimo Commentatore è Cliente",
+      "description": "Se l'ultimo commentatore della segnalazione è un cliente"
+    },
+    "lastCommentIsInternal": {
+      "name": "Flowzira Ultimo Commento è Interno",
+      "description": "Se l'ultimo commento della segnalazione è interno"
+    },
+    "lastCommentIsAgentResponse": {
+      "name": "Flowzira Ultimo Commento è Risposta Agente",
+      "description": "Se l'ultimo commento della segnalazione è una risposta di un agente"
+    },
+    "lastAgentResponseDate": {
+      "name": "Flowzira Data Ultima Risposta Agente",
+      "description": "La data dell'ultima risposta di un agente sulla segnalazione"
+    },
+    "lastCustomerCommentDate": {
+      "name": "Flowzira Data Ultimo Commento Cliente",
+      "description": "La data dell'ultimo commento di un cliente sulla segnalazione"
+    }
+  },
+  "ui": {
+    "buttons": {
+      "save": "Salva",
+      "cancel": "Annulla",
+      "saving": "Salvataggio...",
+      "submit": "Invia",
+      "syncAll": "Sincronizza Tutte le Segnalazioni",
+      "forceStop": "🚨 Emergenza: Ferma Tutte le Sincronizzazioni",
+      "forceReset": "Reset Forzato"
+    },
+    "status": {
+      "error": "Errore",
+      "success": "Successo",
+      "warning": "Avviso",
+      "loading": "Caricamento...",
+      "yes": "Sì",
+      "no": "No"
+    },
+    "messages": {
+      "settingsSaved": "Impostazioni salvate con successo!",
+      "allVisibilityRequired": "Tutte le selezioni di visibilità sono richieste",
+      "unexpectedResponse": "Risposta inaspettata dal server. Le impostazioni potrebbero non essere state salvate.",
+      "failedToSave": "Salvataggio delle impostazioni fallito",
+      "unknownError": "Errore sconosciuto",
+      "unableToLoadSettings": "Impossibile caricare le impostazioni. Utilizzando i valori predefiniti.",
+      "failedToInitialize": "Inizializzazione dell'applicazione fallita.",
+      "failedToInitializeSettings": "Inizializzazione delle impostazioni dell'applicazione fallita.",
+      "licenseNotActive": "La licenza non è attiva",
+      "syncCanTakeTime": "Il processo di sincronizzazione può richiedere oltre 30 minuti per completarsi. Se la sincronizzazione fallisce, può essere ritentata dopo 1 ora.",
+      "emptyValue": "—"
+    },
+    "forms": {
+      "jsmSettings": {
+        "title": "Impostazioni Jira Service Management",
+        "description": "Il Filtro di visibilità definisce i commenti utilizzati per costruire i valori dei campi personalizzati. Questa funzionalità è utile solo in Jira Service Management.",
+        "agentReplyCount": "Numero di Risposte Agente",
+        "lastCommentAgentResponse": "Ultimo Commento Risposta Agente",
+        "getLastAgentResponseDate": "Ottieni Data Ultima Risposta Agente",
+        "pleaseSelectVisibility": "Si prega di selezionare un'opzione di visibilità",
+        "pleaseSelectVisibilityFor": "Si prega di selezionare un'opzione di visibilità per"
+      }
+    },
+    "visibility": {
+      "allComments": "Tutti i commenti",
+      "publicOnly": "Solo commenti pubblici",
+      "internalOnly": "Solo commenti interni"
+    }
+  }
+}

@@ -7,8 +7,10 @@ modules:
         - avi:jira:deleted:comment
   jira:customField:
     - key: flowzira-last-comment-custom-field
-      name: Flowzira Last Comment
-      description: Displays the content of the last comment on the issue.
+      name:
+        i18n: customField.lastComment.name
+      description:
+        i18n: customField.lastComment.description
       type: string
       view:
         value:
@@ -18,8 +20,10 @@ modules:
         experience:
           - issue-view
     - key: flowzira-comment-count-custom-field
-      name: Flowzira Comment Count
-      description: The total number of comments on the issue.
+      name:
+        i18n: customField.commentCount.name
+      description:
+        i18n: customField.commentCount.description
       type: number
       view:
         value:
@@ -29,8 +33,10 @@ modules:
         experience:
           - issue-view
     - key: flowzira-internal-comment-count-custom-field
-      name: Flowzira Internal Comment Count
-      description: The number of internal comments on the issue.
+      name:
+        i18n: customField.internalCommentCount.name
+      description:
+        i18n: customField.internalCommentCount.description
       type: number
       view:
         value:
@@ -40,8 +46,10 @@ modules:
         experience:
           - issue-view
     - key: flowzira-last-comment-date-custom-field
-      name: Flowzira Last Comment Date
-      description: The date of the last comment on the issue.
+      name:
+        i18n: customField.lastCommentDate.name
+      description:
+        i18n: customField.lastCommentDate.description
       type: datetime
       view:
         value:
@@ -51,8 +59,10 @@ modules:
         experience:
           - issue-view
     - key: flowzira-first-comment-date-custom-field
-      name: Flowzira First Comment Date
-      description: The date of the first comment on the issue.
+      name:
+        i18n: customField.firstCommentDate.name
+      description:
+        i18n: customField.firstCommentDate.description
       type: datetime
       view:
         value:
@@ -62,8 +72,10 @@ modules:
         experience:
           - issue-view
     - key: flowzira-last-commenter-name-custom-field
-      name: Flowzira Last Commenter
-      description: The last person to comment on the issue.
+      name:
+        i18n: customField.lastCommenter.name
+      description:
+        i18n: customField.lastCommenter.description
       type: string
       view:
         value:
@@ -73,8 +85,10 @@ modules:
         experience:
           - issue-view
     - key: flowzira-last-commenter-is-assignee-custom-field
-      name: Flowzira Last Commenter is Assignee
-      description: Whether the last commenter is the assignee.
+      name:
+        i18n: customField.lastCommenterIsAssignee.name
+      description:
+        i18n: customField.lastCommenterIsAssignee.description
       type: string
       view:
         value:
@@ -84,8 +98,10 @@ modules:
         experience:
           - issue-view
     - key: flowzira-last-commenter-is-reporter
-      name: Flowzira Last Commenter is Reporter
-      description: Whether the last commenter is the reporter.
+      name:
+        i18n: customField.lastCommenterIsReporter.name
+      description:
+        i18n: customField.lastCommenterIsReporter.description
       type: string
       view:
         value:
@@ -95,8 +111,10 @@ modules:
         experience:
           - issue-view
     - key: flowzira-last-commenter-is-creator-custom-field
-      name: Flowzira Last Commenter is Creator
-      description: Whether the last commenter is the creator.
+      name:
+        i18n: customField.lastCommenterIsCreator.name
+      description:
+        i18n: customField.lastCommenterIsCreator.description
       type: string
       view:
         value:
@@ -106,8 +124,10 @@ modules:
         experience:
           - issue-view
     - key: flowzira-last-assignee-comment-date-custom-field
-      name: Flowzira Last Assignee Comment Date
-      description: The date of the last comment by the assignee.
+      name:
+        i18n: customField.lastAssigneeCommentDate.name
+      description:
+        i18n: customField.lastAssigneeCommentDate.description
       type: datetime
       view:
         value:
@@ -117,8 +137,10 @@ modules:
         experience:
           - issue-view
     - key: flowzira-first-comment-custom-field
-      name: Flowzira First Comment
-      description: The first comment on the issue.
+      name:
+        i18n: customField.firstComment.name
+      description:
+        i18n: customField.firstComment.description
       type: string
       view:
         value:
@@ -128,8 +150,10 @@ modules:
         experience:
           - issue-view
     - key: flowzira-first-commenter-name-custom-field
-      name: Flowzira First Commenter
-      description: The person who made the first comment.
+      name:
+        i18n: customField.firstCommenter.name
+      description:
+        i18n: customField.firstCommenter.description
       type: string
       view:
         value:
@@ -139,8 +163,10 @@ modules:
         experience:
           - issue-view
     - key: flowzira-first-commenter-is-assignee-custom-field
-      name: Flowzira First Commenter is Assignee
-      description: Whether the first commenter is the assignee.
+      name:
+        i18n: customField.firstCommenterIsAssignee.name
+      description:
+        i18n: customField.firstCommenterIsAssignee.description
       type: string
       view:
         value:
@@ -150,8 +176,10 @@ modules:
         experience:
           - issue-view
     - key: flowzira-first-commenter-is-reporter-custom-field
-      name: Flowzira First Commenter is Reporter
-      description: Whether the first commenter is the reporter.
+      name:
+        i18n: customField.firstCommenterIsReporter.name
+      description:
+        i18n: customField.firstCommenterIsReporter.description
       type: string
       view:
         value:
@@ -161,8 +189,10 @@ modules:
         experience:
           - issue-view
     - key: flowzira-first-commenter-is-creator-custom-field
-      name: Flowzira First Commenter is Creator
-      description: Whether the first commenter is the creator.
+      name:
+        i18n: customField.firstCommenterIsCreator.name
+      description:
+        i18n: customField.firstCommenterIsCreator.description
       type: string
       view:
         value:
@@ -172,8 +202,10 @@ modules:
         experience:
           - issue-view
     - key: flowzira-public-comment-count
-      name: Flowzira Public Comment Count
-      description: The number of public comments on the issue
+      name:
+        i18n: customField.publicCommentCount.name
+      description:
+        i18n: customField.publicCommentCount.description
       type: number
       view:
         value:
@@ -184,8 +216,10 @@ modules:
           - issue-view
       icon: resource:assets;Flowzira_cf_preview.svg
     - key: flowzira-agent-reply-count
-      name: Flowzira Agent Reply Count
-      description: The number of replies from agents on the issue
+      name:
+        i18n: customField.agentReplyCount.name
+      description:
+        i18n: customField.agentReplyCount.description
       type: number
       view:
         value:
@@ -195,8 +229,10 @@ modules:
         experience:
           - issue-view
     - key: flowzira-customer-reply-count
-      name: Flowzira Customer Reply Count
-      description: The number of replies from customers on the issue
+      name:
+        i18n: customField.customerReplyCount.name
+      description:
+        i18n: customField.customerReplyCount.description
       type: number
       view:
         value:
@@ -206,8 +242,10 @@ modules:
         experience:
           - issue-view
     - key: flowzira-last-commenter-is-customer
-      name: Flowzira Last Commenter is Customer
-      description: Whether the last commenter on the issue is a customer
+      name:
+        i18n: customField.lastCommenterIsCustomer.name
+      description:
+        i18n: customField.lastCommenterIsCustomer.description
       type: string
       view:
         value:
@@ -217,8 +255,10 @@ modules:
         experience:
           - issue-view
     - key: flowzira-last-comment-is-internal
-      name: Flowzira Last Comment is Internal
-      description: Whether the last comment on the issue is internal
+      name:
+        i18n: customField.lastCommentIsInternal.name
+      description:
+        i18n: customField.lastCommentIsInternal.description
       type: string
       view:
         value:
@@ -228,8 +268,10 @@ modules:
         experience:
           - issue-view
     - key: flowzira-last-comment-is-agent-response
-      name: Flowzira Last Comment is Agent Response
-      description: Whether the last comment on the issue is a response from an agent
+      name:
+        i18n: customField.lastCommentIsAgentResponse.name
+      description:
+        i18n: customField.lastCommentIsAgentResponse.description
       type: string
       view:
         value:
@@ -239,8 +281,10 @@ modules:
         experience:
           - issue-view
     - key: flowzira-last-agent-response-date
-      name: Flowzira Last Agent Response Date
-      description: The date of the last response from an agent on the issue
+      name:
+        i18n: customField.lastAgentResponseDate.name
+      description:
+        i18n: customField.lastAgentResponseDate.description
       type: datetime
       view:
         value:
@@ -250,8 +294,10 @@ modules:
         experience:
           - issue-view
     - key: flowzira-last-customer-comment-date
-      name: Flowzira Last Customer Comment Date
-      description: The date of the last comment from a customer on the issue
+      name:
+        i18n: customField.lastCustomerCommentDate.name
+      description:
+        i18n: customField.lastCustomerCommentDate.description
       type: datetime
       view:
         value:
@@ -326,12 +372,14 @@ modules:
       resolver:
         function: handleAdminActions
       render: native
-      title: Flowzira Settings
+      title:
+        i18n: adminPage.title
       icon: resource:assets;Flowzira_logo_80.svg
     - key: flowzira-getting-started
       resource: getting_started_view
       render: native
-      title: Getting Started
+      title:
+        i18n: gettingStarted.title
       icon: resource:assets;Flowzira_logo_80.svg
       useAsGetStarted: true
   jira:projectSettingsPage:
@@ -340,7 +388,8 @@ modules:
       resolver:
         function: handleAdminActions
       render: native
-      title: Flowzira Settings
+      title:
+        i18n: projectSettings.title
       icon: resource:assets;Flowzira_logo_80.svg
 resources:
   - key: generic_view
@@ -352,7 +401,7 @@ resources:
   - key: getting_started_view
     path: src/frontend/getting-started.jsx
   - key: assets
-    path: src/flowzira_resources/images
+    path: flowzira_resources/images
 app:
   runtime:
     name: nodejs22.x
@@ -372,3 +421,33 @@ permissions:
     - read:jira-user
     - read:field:jira
     - manage:jira-configuration
+translations:
+  resources:
+    - key: en-US
+      path: locales/en-US.json
+    - key: es-ES
+      path: locales/es-ES.json
+    - key: fr-FR
+      path: locales/fr-FR.json
+    - key: de-DE
+      path: locales/de-DE.json
+    - key: pt-BR
+      path: locales/pt-BR.json
+    - key: ja-JP
+      path: locales/ja-JP.json
+    - key: zh-CN
+      path: locales/zh-CN.json
+    - key: ko-KR
+      path: locales/ko-KR.json
+    - key: it-IT
+      path: locales/it-IT.json
+    - key: nl-NL
+      path: locales/nl-NL.json
+  fallback:
+    default: en-US
+    es-ES:
+      - pt-BR
+    pt-PT:
+      - pt-BR
+    zh-TW:
+      - zh-CN

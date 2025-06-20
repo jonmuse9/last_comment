@@ -15,22 +15,33 @@ import ForgeReconciler, {
   xcss,
   HelperMessage,
   Stack,
+  useTranslation,
+  I18nProvider,
 } from "@forge/react";
 import { invoke, view } from "@forge/bridge";
 import { getLink } from "./components/staticInfo";
-import licenseWarning from "../flowzira_resources/components/licenseError";
-import spinner from "../flowzira_resources/components/spinner";
-import LogoWithLinks from "../flowzira_resources/components/logoWithLinks";
+import LicenseError from "../../flowzira_resources/components/licenseError";
+import LoadingSpinner from "../../flowzira_resources/components/spinner";
+import LogoWithLinks from "../../flowzira_resources/components/logoWithLinks";
 import {
   VISIBILITY_OPTIONS,
+  getVisibilityOptions,
   findOptionByValue,
 } from "./components/visibilityOptions";
 import boxBorderStyle from "./components/seeBorders";
 import { USE_LICENSE } from "../resources/properties";
 import ProjectAdminSync from "./components/project_admin_sync";
 
-// Main component
-const AdminPage = () => {
+// Main component with translations
+const AdminPageContent = () => {
+  const { ready, t } = useTranslation();
+  if (!ready) {
+    return <LoadingSpinner />;
+  }
+
+  // Get translated visibility options
+  const translatedVisibilityOptions = getVisibilityOptions(t);
+
   // State variables with proper initialization
   const [agentReplyCountSettings, setAgentReplyCountSettings] = useState(
     VISIBILITY_OPTIONS[0]
@@ -71,16 +82,46 @@ const AdminPage = () => {
         setProjectId(currentProjectId);
         setProjectKey(currentProjectKey);
 
+        if (context.environmentType === "DEVELOPMENT") {
+          console.log("Context fetched:", JSON.stringify(context));
+        }
+
         // Check if the environment is JSM using strict equality
         const isJsmEnvironment =
           context.extension?.project?.type === "service_desk";
 
-        setIsJSM(isJsmEnvironment);
-        // Check if license exists and set active state
-        if (USE_LICENSE && context.license) {
-          setLicenseActive(context.license.active);
-        } else if (USE_LICENSE === false) {
-          setLicenseActive(true); // Default to true if no license is used
+        setIsJSM(isJsmEnvironment); // Check if license exists and set active state with debugging
+        console.log("Project Admin License Debug:", {
+          USE_LICENSE,
+          contextLicense: context.license,
+          environmentType: context.environmentType,
+        });
+
+        if (USE_LICENSE === false) {
+          console.log(
+            "Project Admin: License not used, setting active to true"
+          );
+          setLicenseActive(true);
+        } else if (USE_LICENSE === true) {
+          if (context.license) {
+            console.log(
+              "Project Admin: License object found, active status:",
+              context.license.active
+            );
+            setLicenseActive(context.license.active);
+          } else {
+            console.log(
+              "Project Admin: USE_LICENSE is true but no license object found, setting to false"
+            );
+            setLicenseActive(false);
+          }
+        } else {
+          console.log(
+            "Project Admin: USE_LICENSE value is unexpected:",
+            USE_LICENSE,
+            "setting to false"
+          );
+          setLicenseActive(false);
         } // Only fetch settings if in a JSM environment
         if (isJsmEnvironment) {
           // Create a helper function that uses the current project ID
@@ -127,13 +168,23 @@ const AdminPage = () => {
                   setLastAgentResponseDateSettings(VISIBILITY_OPTIONS[0]);
                 }
               } catch (error) {
-                setApiError("Unable to load settings. Using default values.");
+                setApiError(
+                  t(
+                    "ui.messages.unableToLoadSettings",
+                    "Unable to load settings. Using default values."
+                  )
+                );
                 setAgentReplyCountSettings(VISIBILITY_OPTIONS[0]);
                 setLastCommentAgentResponseSettings(VISIBILITY_OPTIONS[0]);
                 setLastAgentResponseDateSettings(VISIBILITY_OPTIONS[0]);
               }
             } catch (error) {
-              setApiError("Failed to initialize application settings.");
+              setApiError(
+                t(
+                  "ui.messages.failedToInitializeSettings",
+                  "Failed to initialize application settings."
+                )
+              );
             }
           };
           await fetchSettingsWithProjectId();
@@ -147,7 +198,12 @@ const AdminPage = () => {
         }
       } catch (error) {
         console.error("Error during initialization:", error);
-        setApiError("Failed to initialize application.");
+        setApiError(
+          t(
+            "ui.messages.failedToInitialize",
+            "Failed to initialize application."
+          )
+        );
       } finally {
         setIsLoading(false);
         setIsInitialized(true);
@@ -169,15 +225,18 @@ const AdminPage = () => {
       // Extract all visibility settings from form data
       const agentReplyCount = formData.getAgentReplyCount;
       const lastCommentAgentResponse = formData.isLastCommentAgentResponse;
-      const lastAgentResponseDate = formData.getLastAgentResponseDate;
-
-      // Validate required fields
+      const lastAgentResponseDate = formData.getLastAgentResponseDate; // Validate required fields
       if (
         !agentReplyCount ||
         !lastCommentAgentResponse ||
         !lastAgentResponseDate
       ) {
-        setApiError("All visibility selections are required");
+        setApiError(
+          t(
+            "ui.messages.allVisibilityRequired",
+            "All visibility selections are required"
+          )
+        );
         return false;
       }
 
@@ -198,17 +257,24 @@ const AdminPage = () => {
         setLastAgentResponseDateSettings(
           findOptionByValue(lastAgentResponseDate)
         );
-        setSuccessMessage("Settings saved successfully!");
+        setSuccessMessage(
+          t("ui.messages.settingsSaved", "Settings saved successfully!")
+        );
         return true;
       } else {
         setApiError(
-          "Unexpected response from server. Settings might not have been saved."
+          t(
+            "ui.messages.unexpectedResponse",
+            "Unexpected response from server. Settings might not have been saved."
+          )
         );
         return false;
       }
     } catch (error) {
       setApiError(
-        `Failed to save settings: ${error.message || "Unknown error"}`
+        `${t("ui.messages.failedToSave", "Failed to save settings")}: ${
+          error.message || t("ui.messages.unknownError", "Unknown error")
+        }`
       );
       return false;
     } finally {
@@ -220,10 +286,9 @@ const AdminPage = () => {
     // Reset form to current settings
     setApiError(null);
     setSuccessMessage(null);
-  };
-  // Loading state - explicit return to avoid React Error #130
+  }; // Loading state - explicit return to avoid React Error #130
   if (isLoading) {
-    return spinner;
+    return <LoadingSpinner t={t} />;
   }
 
   // --- SYNC SECTION ---
@@ -236,12 +301,13 @@ const AdminPage = () => {
             ...boxBorderStyle,
           })}
         >
-          {!licenseActive && licenseWarning}{" "}
+          {!licenseActive && <LicenseError t={t} />}{" "}
           {apiError && (
             <Box xcss={xcss({ marginBottom: "space.300", ...boxBorderStyle })}>
+              {" "}
               <SectionMessage
                 appearance="error"
-                title="Error"
+                title={t("ui.status.error", "Error")}
                 testId="api-error-message"
               >
                 <Text>{apiError}</Text>
@@ -250,9 +316,10 @@ const AdminPage = () => {
           )}
           {successMessage && (
             <Box xcss={xcss({ marginBottom: "space.300", ...boxBorderStyle })}>
+              {" "}
               <SectionMessage
                 appearance="success"
-                title="Success"
+                title={t("ui.status.success", "Success")}
                 testId="success-message"
               >
                 <Text>{successMessage}</Text>
@@ -263,32 +330,51 @@ const AdminPage = () => {
             <Box xcss={xcss({ width: "50%", ...boxBorderStyle })}>
               <Form onSubmit={handleSubmit(saveJsmSettings)}>
                 <Stack space="space.300">
-                  <FormHeader title="Jira Service Management Settings">
-                    The visibility Filter defines the comments used to build the
-                    custom field values. This feature is only useful in Jira
-                    Service Management.
+                  {" "}
+                  <FormHeader
+                    title={t(
+                      "ui.forms.jsmSettings.title",
+                      "Jira Service Management Settings"
+                    )}
+                  >
+                    {t(
+                      "ui.forms.jsmSettings.description",
+                      "The visibility Filter defines the comments used to build the custom field values. This feature is only useful in Jira Service Management."
+                    )}
                   </FormHeader>
                   <FormSection>
                     <Stack space="space.200">
                       <Inline grow="fill" alignBlock="center" space="space.100">
                         <Box xcss={boxBorderStyle}>
+                          {" "}
                           <Label labelFor={getFieldId("getAgentReplyCount")}>
-                            Agent Reply Count
+                            {t(
+                              "ui.forms.jsmSettings.agentReplyCount",
+                              "Agent Reply Count"
+                            )}
                           </Label>
                         </Box>
                         <Box xcss={xcss({ flexGrow: 0.4, ...boxBorderStyle })}>
                           <Select
                             {...register("getAgentReplyCount", {
-                              required:
-                                "Please select a visibility option for Agent Reply Count",
+                              required: `${t(
+                                "ui.forms.jsmSettings.pleaseSelectVisibilityFor",
+                                "Please select a visibility option for"
+                              )} ${t(
+                                "ui.forms.jsmSettings.agentReplyCount",
+                                "Agent Reply Count"
+                              )}`,
                             })}
-                            options={VISIBILITY_OPTIONS}
+                            options={translatedVisibilityOptions}
                             defaultValue={agentReplyCountSettings}
                           />
                           {formState.errors.getAgentReplyCount && (
                             <HelperMessage appearance="error">
                               {formState.errors.getAgentReplyCount.message ||
-                                "Please select a visibility option"}
+                                t(
+                                  "ui.forms.jsmSettings.pleaseSelectVisibility",
+                                  "Please select a visibility option"
+                                )}
                             </HelperMessage>
                           )}
                         </Box>
@@ -296,49 +382,73 @@ const AdminPage = () => {
 
                       <Inline grow="fill" alignBlock="center" space="space.100">
                         <Box xcss={boxBorderStyle}>
+                          {" "}
                           <Label
                             labelFor={getFieldId("isLastCommentAgentResponse")}
                           >
-                            Last Comment Agent Response
+                            {t(
+                              "ui.forms.jsmSettings.lastCommentAgentResponse",
+                              "Last Comment Agent Response"
+                            )}
                           </Label>
                         </Box>
                         <Box xcss={xcss({ flexGrow: 0.4, ...boxBorderStyle })}>
                           <Select
                             {...register("isLastCommentAgentResponse", {
-                              required:
-                                "Please select a visibility option for Last Comment Agent Response",
+                              required: `${t(
+                                "ui.forms.jsmSettings.pleaseSelectVisibilityFor",
+                                "Please select a visibility option for"
+                              )} ${t(
+                                "ui.forms.jsmSettings.lastCommentAgentResponse",
+                                "Last Comment Agent Response"
+                              )}`,
                             })}
-                            options={VISIBILITY_OPTIONS}
+                            options={translatedVisibilityOptions}
                             defaultValue={lastCommentAgentResponseSettings}
                           />
                           {formState.errors.isLastCommentAgentResponse && (
                             <HelperMessage appearance="error">
                               {formState.errors.isLastCommentAgentResponse
-                                .message || "Please select a visibility option"}
+                                .message ||
+                                t(
+                                  "ui.forms.jsmSettings.pleaseSelectVisibility",
+                                  "Please select a visibility option"
+                                )}
                             </HelperMessage>
                           )}
                         </Box>
                       </Inline>
                       <Inline grow="fill" alignBlock="center" space="space.100">
                         <Box xcss={boxBorderStyle}>
+                          {" "}
                           <Label
                             labelFor={getFieldId("getLastAgentResponseDate")}
                           >
-                            Get Last Agent Response Date
+                            {t(
+                              "ui.forms.jsmSettings.getLastAgentResponseDate",
+                              "Get Last Agent Response Date"
+                            )}
                           </Label>
                         </Box>
                         <Box xcss={xcss({ flexGrow: 0.4, ...boxBorderStyle })}>
                           <Select
                             {...register("getLastAgentResponseDate", {
-                              required: "Please select a visibility option",
+                              required: t(
+                                "ui.forms.jsmSettings.pleaseSelectVisibility",
+                                "Please select a visibility option"
+                              ),
                             })}
-                            options={VISIBILITY_OPTIONS}
+                            options={translatedVisibilityOptions}
                             defaultValue={lastAgentResponseDateSettings}
                           />
                           {formState.errors.getLastAgentResponseDate && (
                             <HelperMessage appearance="error">
                               {formState.errors.getLastAgentResponseDate
-                                .message || "Please select a visibility option"}
+                                .message ||
+                                t(
+                                  "ui.forms.jsmSettings.pleaseSelectVisibility",
+                                  "Please select a visibility option"
+                                )}
                             </HelperMessage>
                           )}
                         </Box>
@@ -347,15 +457,18 @@ const AdminPage = () => {
                   </FormSection>
                   <FormFooter>
                     <Inline alignInline="start">
+                      {" "}
                       <Button onClick={handleCancel} appearance="subtle">
-                        Cancel
+                        {t("ui.buttons.cancel", "Cancel")}
                       </Button>
                       <Button
                         appearance="primary"
                         type="submit"
                         isDisabled={isSubmitting}
                       >
-                        {isSubmitting ? "Saving..." : "Save"}
+                        {isSubmitting
+                          ? t("ui.buttons.saving", "Saving...")
+                          : t("ui.buttons.save", "Save")}
                       </Button>
                     </Inline>
                   </FormFooter>
@@ -375,15 +488,25 @@ const AdminPage = () => {
           />
         </Box>
         <Box xcss={xcss({ flexGrow: 0.25, ...boxBorderStyle })}>
+          {" "}
           <LogoWithLinks
             documentationUrl={getLink("DOCUMENTATION")}
-            documentationLabel="Documentation"
+            documentationLabel={t("ui.links.documentation", "Documentation")}
             supportUrl={getLink("SUPPORT")}
-            supportLabel="Flowzira Support"
+            supportLabel={t("ui.links.support", "Flowzira Support")}
           />
         </Box>
       </Inline>
     </>
+  );
+};
+
+// Wrapper component with I18nProvider
+const AdminPage = () => {
+  return (
+    <I18nProvider>
+      <AdminPageContent />
+    </I18nProvider>
   );
 };
 

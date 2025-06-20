@@ -1,0 +1,265 @@
+{
+  "adminPage": {
+    "title": "Configuración de Flowzira"
+  },
+  "gettingStarted": {
+    "title": "Primeros Pasos",
+    "heading": "Un conjunto completo de análisis e insights de comentarios para Jira",
+    "description": "Flowzira proporciona campos personalizados y análisis potentes, sin código, para ayudarte a ti y a tu equipo a entender y gestionar conversaciones en elementos de trabajo de Jira. Ponte en marcha en poco tiempo—¡no se requiere código!",
+    "features": {
+      "simple": {
+        "title": "Simple",
+        "description": "Genera fácilmente campos personalizados calculados sin necesidad de programación."
+      },
+      "commentAnalytics": {
+        "title": "Análisis de Comentarios",
+        "description": "Crea varios campos calculados para mejorar la visibilidad y hacer los elementos de trabajo más buscables. ¡Los campos se actualizan automáticamente!"
+      },
+      "dynamicInsights": {
+        "title": "Insights Dinámicos",
+        "description": "Los valores de los campos personalizados están siempre actualizados, por lo que tus búsquedas e informes son precisos y accionables."
+      }
+    },
+    "quickStart": {
+      "title": "Inicio rápido",
+      "description": "Comienza con Flowzira en solo unos clics:",
+      "steps": {
+        "step1": "Configura tus campos personalizados en la configuración del proyecto",
+        "step2": "Añade los campos a tus pantallas de vista de elementos de trabajo",
+        "step3": "Comienza a analizar los patrones de comunicación de tu equipo"
+      }
+    },
+    "support": {
+      "title": "Estamos aquí para ayudar",
+      "resourcesTitle": "Soporte y Recursos",
+      "resourcesDescription": "Consulta estos recursos que te guiarán a través del proceso simple de configuración de análisis de comentarios y campos personalizados.",
+      "supportRequest": "Solicitud de Soporte",
+      "userGuide": "Guía del Usuario"
+    },
+    "feedback": {
+      "title": "Cuéntanos lo que piensas",
+      "description": "Si encontraste útil Flowzira, ¡háznoslo saber! Damos la bienvenida a tus comentarios.",
+      "writeReview": "Escribir una reseña"
+    }
+  },
+  "projectSettings": {
+    "title": "Configuración de Flowzira"
+  },
+  "customField": {
+    "lastComment": {
+      "name": "Flowzira Último Comentario",
+      "description": "Muestra el contenido del último comentario en el elemento de trabajo."
+    },
+    "commentCount": {
+      "name": "Flowzira Número de Comentarios",
+      "description": "El número total de comentarios en el elemento de trabajo."
+    },
+    "internalCommentCount": {
+      "name": "Flowzira Número de Comentarios Internos",
+      "description": "El número de comentarios internos en el elemento de trabajo."
+    },
+    "lastCommentDate": {
+      "name": "Flowzira Fecha del Último Comentario",
+      "description": "La fecha del último comentario en el elemento de trabajo."
+    },
+    "firstCommentDate": {
+      "name": "Flowzira Fecha del Primer Comentario",
+      "description": "La fecha del primer comentario en el elemento de trabajo."
+    },
+    "lastCommenter": {
+      "name": "Flowzira Último Comentarista",
+      "description": "La última persona que comentó en el elemento de trabajo."
+    },
+    "lastCommenterIsAssignee": {
+      "name": "Flowzira Último Comentarista es Asignado",
+      "description": "Si el último comentarista es el asignado."
+    },
+    "lastCommenterIsReporter": {
+      "name": "Flowzira Último Comentarista es Reportero",
+      "description": "Si el último comentarista es el reportero."
+    },
+    "lastCommenterIsCreator": {
+      "name": "Flowzira Último Comentarista es Creador",
+      "description": "Si el último comentarista es el creador."
+    },
+    "lastAssigneeCommentDate": {
+      "name": "Flowzira Fecha Último Comentario del Asignado",
+      "description": "La fecha del último comentario del asignado."
+    },
+    "firstComment": {
+      "name": "Flowzira Primer Comentario",
+      "description": "El primer comentario en la incidencia."
+    },
+    "firstCommenter": {
+      "name": "Flowzira Primer Comentarista",
+      "description": "La persona que hizo el primer comentario."
+    },
+    "firstCommenterIsAssignee": {
+      "name": "Flowzira Primer Comentarista es Asignado",
+      "description": "Si el primer comentarista es el asignado."
+    },
+    "firstCommenterIsReporter": {
+      "name": "Flowzira Primer Comentarista es Reportero",
+      "description": "Si el primer comentarista es el reportero."
+    },
+    "firstCommenterIsCreator": {
+      "name": "Flowzira Primer Comentarista es Creador",
+      "description": "Si el primer comentarista es el creador."
+    },
+    "publicCommentCount": {
+      "name": "Flowzira Número de Comentarios Públicos",
+      "description": "El número de comentarios públicos en la incidencia"
+    },
+    "agentReplyCount": {
+      "name": "Flowzira Número de Respuestas de Agentes",
+      "description": "El número de respuestas de agentes en la incidencia"
+    },
+    "customerReplyCount": {
+      "name": "Flowzira Número de Respuestas de Clientes",
+      "description": "El número de respuestas de clientes en la incidencia"
+    },
+    "lastCommenterIsCustomer": {
+      "name": "Flowzira Último Comentarista es Cliente",
+      "description": "Si el último comentarista en la incidencia es un cliente"
+    },
+    "lastCommentIsInternal": {
+      "name": "Flowzira Último Comentario es Interno",
+      "description": "Si el último comentario en la incidencia es interno"
+    },
+    "lastCommentIsAgentResponse": {
+      "name": "Flowzira Último Comentario es Respuesta de Agente",
+      "description": "Si el último comentario en la incidencia es una respuesta de un agente"
+    },
+    "lastAgentResponseDate": {
+      "name": "Flowzira Fecha Última Respuesta de Agente",
+      "description": "La fecha de la última respuesta de un agente en la incidencia"
+    },
+    "lastCustomerCommentDate": {
+      "name": "Flowzira Fecha Último Comentario de Cliente",
+      "description": "La fecha del último comentario de un cliente en la incidencia"
+    }
+  },
+  "ui": {
+    "buttons": {
+      "save": "Guardar",
+      "cancel": "Cancelar",
+      "saving": "Guardando...",
+      "submit": "Enviar",
+      "syncAll": "Sincronizar Todas las Incidencias",
+      "forceStop": "🚨 Detener Forzosamente Todas las Sincronizaciones",
+      "forceReset": "Reinicio Forzoso"
+    },
+    "status": {
+      "error": "Error",
+      "success": "Éxito",
+      "warning": "Advertencia",
+      "loading": "Cargando...",
+      "yes": "Sí",
+      "no": "No"
+    },
+    "messages": {
+      "settingsSaved": "¡Configuración guardada exitosamente!",
+      "allVisibilityRequired": "Todas las selecciones de visibilidad son requeridas",
+      "unexpectedResponse": "Respuesta inesperada del servidor. Es posible que la configuración no se haya guardado.",
+      "failedToSave": "Error al guardar la configuración",
+      "unknownError": "Error desconocido",
+      "unableToLoadSettings": "No se puede cargar la configuración. Usando valores predeterminados.",
+      "failedToInitialize": "Error al inicializar la aplicación.",
+      "failedToInitializeSettings": "Error al inicializar la configuración de la aplicación.",
+      "licenseNotActive": "La licencia no está activa",
+      "syncCanTakeTime": "El proceso de sincronización puede tardar más de 30 minutos en completarse. Si la sincronización no se completa, se puede reintentar después de 1 hora.",
+      "emptyValue": "—"
+    },
+    "forms": {
+      "jsmSettings": {
+        "title": "Configuración de Jira Service Management",
+        "description": "El Filtro de visibilidad define los comentarios utilizados para construir los valores de los campos personalizados. Esta característica solo es útil en Jira Service Management.",
+        "agentReplyCount": "Número de Respuestas de Agentes",
+        "lastCommentAgentResponse": "Última Respuesta de Agente en Comentario",
+        "getLastAgentResponseDate": "Obtener Fecha de Última Respuesta de Agente",
+        "pleaseSelectVisibility": "Por favor seleccione una opción de visibilidad",
+        "pleaseSelectVisibilityFor": "Por favor seleccione una opción de visibilidad para"
+      }
+    },
+    "links": {
+      "documentation": "Documentación",
+      "support": "Soporte Flowzira"
+    },
+    "sync": {
+      "title": "Sincronización Masiva de Campos Personalizados",
+      "description": {
+        "globalAdmin": "Usa esta herramienta para prellenar valores de campos personalizados calculados para elementos de trabajo en todos los proyectos. Esto es requerido si quieres que los elementos de trabajo tengan valores actualizados. Los elementos de trabajo tendrán automáticamente los valores calculados aplicados cuando se añadan o eliminen comentarios.",
+        "projectAdmin": "Usa esta herramienta para prellenar valores de campos personalizados calculados para todos los elementos de trabajo en este proyecto. Esto es requerido si quieres que los elementos de trabajo antiguos tengan valores actualizados. Los elementos de trabajo tendrán automáticamente los valores calculados aplicados cuando se añadan o eliminen comentarios."
+      },
+      "licenseError": "La funcionalidad de sincronización está deshabilitada debido a una licencia inválida. Por favor asegúrate de que tu licencia esté activa para usar la funcionalidad de sincronización.",
+      "infoMessage": {
+        "globalAdmin": "Esta herramienta de sincronización solo puede procesar un máximo de 5,000 elementos de trabajo y prioriza los elementos de trabajo más recientes. Usa consultas JQL para filtrar elementos de trabajo de proyectos específicos o tipos de elementos de trabajo.",
+        "projectAdmin": "Esta herramienta de sincronización solo puede procesar un máximo de 5,000 elementos de trabajo y prioriza los elementos de trabajo más recientes. Si tu proyecto tiene más de 5,000 elementos de trabajo, considera usar JQL para filtrar los elementos de trabajo según sea necesario."
+      },
+      "jql": {
+        "label": {
+          "required": "Consulta JQL (requerida)",
+          "optional": "Consulta JQL (opcional)"
+        },
+        "placeholder": {
+          "globalAdmin": "Ingresa consulta JQL para especificar qué elementos de trabajo sincronizar",
+          "projectAdmin": "Ingresa consulta JQL para filtrar elementos de trabajo"
+        },
+        "helpText": {
+          "globalAdmin": "La consulta JQL es requerida para sincronización global. Usa claves de proyecto u otros filtros para especificar qué elementos de trabajo procesar.",
+          "projectAdmin": "Consulta JQL opcional. Deja en blanco para procesar todos los elementos de trabajo en el proyecto. Este filtro solo puede usarse para buscar elementos de trabajo en este proyecto."
+        }
+      },
+      "buttons": {
+        "startSync": "Iniciar Sincronización",
+        "stopSync": "Detener Sincronización",
+        "syncRunning": "Sincronización Ejecutándose...",
+        "forceStop": "🚨 Parada Forzada de Emergencia de Todas las Sincronizaciones",
+        "forceReset": "Reinicio Forzado"
+      },
+      "progress": {
+        "workItemsProcessed": "elementos de trabajo procesados",
+        "eta": "Tiempo Estimado"
+      },
+      "status": {
+        "running": "Ejecutándose",
+        "completed": "Completado",
+        "idle": "Inactivo",
+        "syncStarted": "Sincronización iniciada",
+        "syncStopped": "Sincronización detenida",
+        "syncResetSuccess": "El estado de sincronización ha sido reiniciado exitosamente",
+        "emergencyStopSuccess": "✅ Parada de emergencia completada: Todas las sincronizaciones detenidas y cola limpiada"
+      },
+      "errors": {
+        "failedToReset": "Falló al reiniciar el estado de sincronización",
+        "failedToForceStop": "Falló al forzar la parada de sincronizaciones"
+      },
+      "history": {
+        "title": "Historial de Sincronización:",
+        "noHistory": "Aún no hay historial de sincronización.",
+        "project": "Proyecto"
+      },
+      "warnings": {
+        "timeWarning": "El proceso de sincronización puede tomar más de 30 minutos en completarse. Si la sincronización falla, puede reintentarse después de 1 hora."
+      },
+      "confirmations": {
+        "forceReset": "¿Estás seguro de que quieres forzar el reinicio? Esto limpiará todo el estado de sincronización e historial.",
+        "emergencyStop": "⚠️ PARADA DE EMERGENCIA: Esto detendrá inmediatamente TODOS los procesos de sincronización en ejecución y limpiará la cola. Usa esto solo si las sincronizaciones están atascadas o procesando duplicados. ¿Estás seguro?"
+      }
+    },
+    "visibility": {
+      "allComments": "Todos los comentarios",
+      "publicOnly": "Solo comentarios públicos",
+      "internalOnly": "Solo comentarios internos"
+    }
+  },
+  "flowzira": {
+    "license": {
+      "errorTitle": "Error de validación de licencia",
+      "errorMessage": "La licencia para esta aplicación está inactiva. Los valores de los campos personalizados no se calcularán automáticamente sin una licencia activa y los datos podrían perderse. Esto debe resolverse lo antes posible. Por favor contacta a tu administrador de Jira."
+    },
+    "loading": {
+      "settings": "Cargando configuración..."
+    }
+  }
+}

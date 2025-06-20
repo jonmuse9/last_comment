@@ -1,0 +1,153 @@
+{
+  "adminPage": {
+    "title": "Flowzira Einstellungen"
+  },
+  "gettingStarted": {
+    "title": "Erste Schritte"
+  },
+  "projectSettings": {
+    "title": "Flowzira Einstellungen"
+  },
+  "customField": {
+    "lastComment": {
+      "name": "Flowzira Letzter Kommentar",
+      "description": "Zeigt den Inhalt des letzten Kommentars zum Vorgang an."
+    },
+    "commentCount": {
+      "name": "Flowzira Anzahl Kommentare",
+      "description": "Die Gesamtanzahl der Kommentare zum Vorgang."
+    },
+    "internalCommentCount": {
+      "name": "Flowzira Anzahl interne Kommentare",
+      "description": "Die Anzahl der internen Kommentare zum Vorgang."
+    },
+    "lastCommentDate": {
+      "name": "Flowzira Datum letzter Kommentar",
+      "description": "Das Datum des letzten Kommentars zum Vorgang."
+    },
+    "firstCommentDate": {
+      "name": "Flowzira Datum erster Kommentar",
+      "description": "Das Datum des ersten Kommentars zum Vorgang."
+    },
+    "lastCommenter": {
+      "name": "Flowzira Letzter Kommentator",
+      "description": "Die Person, die zuletzt den Vorgang kommentiert hat."
+    },
+    "lastCommenterIsAssignee": {
+      "name": "Flowzira Letzter Kommentator ist Bearbeiter",
+      "description": "Ob der letzte Kommentator der Bearbeiter ist."
+    },
+    "lastCommenterIsReporter": {
+      "name": "Flowzira Letzter Kommentator ist Melder",
+      "description": "Ob der letzte Kommentator der Melder ist."
+    },
+    "lastCommenterIsCreator": {
+      "name": "Flowzira Letzter Kommentator ist Ersteller",
+      "description": "Ob der letzte Kommentator der Ersteller ist."
+    },
+    "lastAssigneeCommentDate": {
+      "name": "Flowzira Datum letzter Bearbeiter-Kommentar",
+      "description": "Das Datum des letzten Kommentars des Bearbeiters."
+    },
+    "firstComment": {
+      "name": "Flowzira Erster Kommentar",
+      "description": "Der erste Kommentar zum Vorgang."
+    },
+    "firstCommenter": {
+      "name": "Flowzira Erster Kommentator",
+      "description": "Die Person, die den ersten Kommentar verfasst hat."
+    },
+    "firstCommenterIsAssignee": {
+      "name": "Flowzira Erster Kommentator ist Bearbeiter",
+      "description": "Ob der erste Kommentator der Bearbeiter ist."
+    },
+    "firstCommenterIsReporter": {
+      "name": "Flowzira Erster Kommentator ist Melder",
+      "description": "Ob der erste Kommentator der Melder ist."
+    },
+    "firstCommenterIsCreator": {
+      "name": "Flowzira Erster Kommentator ist Ersteller",
+      "description": "Ob der erste Kommentator der Ersteller ist."
+    },
+    "publicCommentCount": {
+      "name": "Flowzira Anzahl öffentliche Kommentare",
+      "description": "Die Anzahl der öffentlichen Kommentare zum Vorgang"
+    },
+    "agentReplyCount": {
+      "name": "Flowzira Anzahl Agent-Antworten",
+      "description": "Die Anzahl der Antworten von Agenten zum Vorgang"
+    },
+    "customerReplyCount": {
+      "name": "Flowzira Anzahl Kunden-Antworten",
+      "description": "Die Anzahl der Antworten von Kunden zum Vorgang"
+    },
+    "lastCommenterIsCustomer": {
+      "name": "Flowzira Letzter Kommentator ist Kunde",
+      "description": "Ob der letzte Kommentator des Vorgangs ein Kunde ist"
+    },
+    "lastCommentIsInternal": {
+      "name": "Flowzira Letzter Kommentar ist intern",
+      "description": "Ob der letzte Kommentar des Vorgangs intern ist"
+    },
+    "lastCommentIsAgentResponse": {
+      "name": "Flowzira Letzter Kommentar ist Agent-Antwort",
+      "description": "Ob der letzte Kommentar des Vorgangs eine Antwort eines Agenten ist"
+    },
+    "lastAgentResponseDate": {
+      "name": "Flowzira Datum letzte Agent-Antwort",
+      "description": "Das Datum der letzten Antwort eines Agenten zum Vorgang"
+    },
+    "lastCustomerCommentDate": {
+      "name": "Flowzira Datum letzter Kunden-Kommentar",
+      "description": "Das Datum des letzten Kommentars eines Kunden zum Vorgang"
+    }
+  },
+  "ui": {
+    "buttons": {
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "saving": "Speichert...",
+      "submit": "Senden",
+      "syncAll": "Alle Vorgänge synchronisieren",
+      "forceStop": "🚨 Notfall: Alle Synchronisationen stoppen",
+      "forceReset": "Zurücksetzen erzwingen"
+    },
+    "status": {
+      "error": "Fehler",
+      "success": "Erfolgreich",
+      "warning": "Warnung",
+      "loading": "Lädt...",
+      "yes": "Ja",
+      "no": "Nein"
+    },
+    "messages": {
+      "settingsSaved": "Einstellungen erfolgreich gespeichert!",
+      "allVisibilityRequired": "Alle Sichtbarkeitsauswahlen sind erforderlich",
+      "unexpectedResponse": "Unerwartete Antwort vom Server. Einstellungen wurden möglicherweise nicht gespeichert.",
+      "failedToSave": "Speichern der Einstellungen fehlgeschlagen",
+      "unknownError": "Unbekannter Fehler",
+      "unableToLoadSettings": "Einstellungen können nicht geladen werden. Standardwerte werden verwendet.",
+      "failedToInitialize": "Initialisierung der Anwendung fehlgeschlagen.",
+      "failedToInitializeSettings": "Initialisierung der Anwendungseinstellungen fehlgeschlagen.",
+      "licenseNotActive": "Lizenz ist nicht aktiv",
+      "syncCanTakeTime": "Der Synchronisationsprozess kann über 30 Minuten dauern. Falls die Synchronisation fehlschlägt, kann sie nach 1 Stunde erneut versucht werden.",
+      "emptyValue": "—"
+    },
+    "forms": {
+      "jsmSettings": {
+        "title": "Jira Service Management Einstellungen",
+        "description": "Der Sichtbarkeitsfilter definiert die Kommentare, die zum Aufbau der benutzerdefinierten Feldwerte verwendet werden. Diese Funktion ist nur in Jira Service Management nützlich.",
+        "agentReplyCount": "Anzahl Agent-Antworten",
+        "lastCommentAgentResponse": "Letzter Kommentar Agent-Antwort",
+        "getLastAgentResponseDate": "Datum letzte Agent-Antwort abrufen",
+        "pleaseSelectVisibility": "Bitte wählen Sie eine Sichtbarkeitsoption",
+        "pleaseSelectVisibilityFor": "Bitte wählen Sie eine Sichtbarkeitsoption für"
+      }
+    },
+    "visibility": {
+      "allComments": "Alle Kommentare",
+      "publicOnly": "Nur öffentliche Kommentare",
+      "internalOnly": "Nur interne Kommentare"
+    }
+  }
+}

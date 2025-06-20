@@ -199,12 +199,12 @@ export const isFirstCommenterAssignee = async (args) => {
     args.issues.map(async (issue) => {
       const comments = await getComments(issue.id);
       if (comments.length === 0) {
-        return null;
+        return "False";
       }
       const firstComment = comments[0];
       const assignee = await getIssueField(issue.id, "assignee");
       if (!assignee) {
-        return null; // or some other default value
+        return "False";
       }
       return firstComment.author.displayName === assignee.displayName
         ? "True"
@@ -218,12 +218,12 @@ export const isFirstCommenterCreator = async (args) => {
     args.issues.map(async (issue) => {
       const comments = await getComments(issue.id);
       if (comments.length === 0) {
-        return null;
+        return "false";
       }
       const firstComment = comments[0];
       const creator = await getIssueField(issue.id, "creator");
       if (!creator) {
-        return null; // or some other default value
+        return "false"; // or some other default value
       }
       return firstComment.author.displayName === creator.displayName
         ? "True"
@@ -237,12 +237,12 @@ export const isFirstCommenterReporter = async (args) => {
     args.issues.map(async (issue) => {
       const comments = await getComments(issue.id);
       if (comments.length === 0) {
-        return null;
+        return "false";
       }
       const firstComment = comments[0];
       const reporter = await getIssueField(issue.id, "reporter");
       if (!reporter) {
-        return null; // or some other default value
+        return "false"; // or some other default value
       }
       return firstComment.author.displayName === reporter.displayName
         ? "True"
@@ -256,12 +256,12 @@ export const isLastCommenterAssignee = async (args) => {
     args.issues.map(async (issue) => {
       const comments = await getComments(issue.id);
       if (comments.length === 0) {
-        return null;
+        return "False";
       }
       const lastComment = comments[comments.length - 1];
       const assignee = await getIssueField(issue.id, "assignee");
       if (!assignee) {
-        return null; // or some other default value
+        return "False";
       }
       return lastComment.author.displayName === assignee.displayName
         ? "True"
@@ -275,12 +275,12 @@ export const isLastCommenterReporter = async (args) => {
     args.issues.map(async (issue) => {
       const comments = await getComments(issue.id);
       if (comments.length === 0) {
-        return null;
+        return "False";
       }
       const lastComment = comments[comments.length - 1];
       const reporter = await getIssueField(issue.id, "reporter");
       if (!reporter) {
-        return null; // or some other default value
+        return "False";
       }
       return lastComment.author.displayName === reporter.displayName
         ? "True"
@@ -294,12 +294,12 @@ export const isLastCommenterCreator = async (args) => {
     args.issues.map(async (issue) => {
       const comments = await getComments(issue.id);
       if (comments.length === 0) {
-        return null;
+        return "false";
       }
       const lastComment = comments[comments.length - 1];
       const creator = await getIssueField(issue.id, "creator");
       if (!creator) {
-        return null; // or some other default value
+        return "false"; // or some other default value
       }
       return lastComment.author.displayName === creator.displayName
         ? "True"

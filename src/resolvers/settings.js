@@ -1,6 +1,10 @@
 // Settings logic for app settings
 import api, { storage, route } from "@forge/api";
 import cache from "@forge/cache";
+import {
+  VISIBILITY_OPTIONS,
+  findOptionByValue,
+} from "../frontend/components/visibilityOptions.js";
 
 const DEFAULT_BATCH_SIZE = 50;
 
@@ -60,9 +64,8 @@ export const getAppSettings = async (projectId) => {
           ttlSeconds: 3600,
         });
       }
-    }
-    // Use full object defaults
-    const defaultOption = { label: "All comments", value: "all" };
+    } // Use full object defaults
+    const defaultOption = findOptionByValue("all");
     const defaultSettings = {
       agentReplyCountVisibility: defaultOption,
       lastCommentAgentResponseVisibility: defaultOption,
@@ -71,7 +74,7 @@ export const getAppSettings = async (projectId) => {
     const result = settings || defaultSettings;
     return result;
   } catch (error) {
-    const defaultOption = { label: "All comments", value: "all" };
+    const defaultOption = findOptionByValue("all");
     return {
       agentReplyCountVisibility: defaultOption,
       lastCommentAgentResponseVisibility: defaultOption,
@@ -79,21 +82,6 @@ export const getAppSettings = async (projectId) => {
     };
   }
 };
-
-// Defensive normalization for all fields to always store {label, value} objects
-const VISIBILITY_OPTIONS = [
-  { label: "All comments", value: "all" },
-  { label: "Public comments only", value: "public" },
-  { label: "Internal comments only", value: "internal" },
-];
-function findOptionByValue(val) {
-  return (
-    VISIBILITY_OPTIONS.find((opt) => opt.value === val) || {
-      label: val,
-      value: val,
-    }
-  );
-}
 
 export async function saveAppSettings({ payload, projectId, projectKey }) {
   let resolvedProjectId = projectId;
@@ -170,6 +158,5 @@ export async function saveAppSettings({ payload, projectId, projectKey }) {
   } catch (cacheError) {}
   return {
     success: true,
-    message: "Settings saved successfully",
   };
 }

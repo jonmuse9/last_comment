@@ -1,18 +1,32 @@
 import React, { useState, useEffect } from "react";
-import ForgeReconciler, { Text } from "@forge/react";
+import ForgeReconciler, {
+  Text,
+  useTranslation,
+  I18nProvider,
+} from "@forge/react";
 import { view } from "@forge/bridge";
 import { USE_LICENSE } from "../resources/properties.js";
 import { getFieldInfo } from "../resources/customFields.js";
 
-const GenericView = () => {
+const GenericViewContent = () => {
+  const { ready, t } = useTranslation();
+
+  // All useState hooks must be called before any early returns
   const [context, setContext] = useState(null);
   const [fieldValue, setFieldValue] = useState(null);
-  const [licenseActive, setLicenseActive] = useState(false);
+  // Initialize licenseActive based on USE_LICENSE - if license is not used, it should be active
+  const [licenseActive, setLicenseActive] = useState(USE_LICENSE === false);
   const [fieldType, setFieldType] = useState(null);
+
+  // All useEffect hooks must be called before any early returns
   useEffect(() => {
     const fetchContext = async () => {
       const context = await view.getContext();
       setContext(context);
+
+      if (context.environmentType === "DEVELOPMENT") {
+        console.log("Context in GenericView:", JSON.stringify(context));
+      }
 
       // Get the moduleKey which corresponds to the custom field key
       if (context.moduleKey) {
@@ -73,18 +87,28 @@ const GenericView = () => {
       }
 
       // Check license status
-      if (USE_LICENSE && context.license) {
-        setLicenseActive(context.license.active);
-      } else if (USE_LICENSE === false) {
-        setLicenseActive(true); // Default to true if no license is used
+      if (USE_LICENSE === false) {
+        setLicenseActive(true);
+      } else if (USE_LICENSE === true) {
+        if (context.license) {
+          setLicenseActive(context.license.active);
+        } else {
+          setLicenseActive(false);
+        }
+      } else {
+        setLicenseActive(false);
       }
     }
   }, [context, fieldType]);
+  // Early return check AFTER all hooks
+  if (!ready) {
+    return <Text>—</Text>; // Return fallback while loading translations
+  }
 
   // Helper function to render the field value appropriately
   const renderFieldValue = () => {
     if (fieldValue === null || fieldValue === undefined) {
-      return <Text>—</Text>; // Em dash for empty values
+      return <Text>{t("ui.messages.emptyValue", "—")}</Text>; // Em dash for empty values
     }
 
     // For boolean fields that use string representation
@@ -92,9 +116,9 @@ const GenericView = () => {
       return (
         <Text>
           {fieldValue === "true"
-            ? "Yes"
+            ? t("ui.status.yes", "Yes")
             : fieldValue === "false"
-            ? "No"
+            ? t("ui.status.no", "No")
             : fieldValue}
         </Text>
       );
@@ -106,8 +130,23 @@ const GenericView = () => {
   // Always return valid JSX from the render method to avoid React Error #130
   return (
     <>
-      {licenseActive ? renderFieldValue() : <Text>License is not active</Text>}
+      {licenseActive ? (
+        renderFieldValue()
+      ) : (
+        <Text>
+          {t("ui.messages.licenseNotActive", "License is not active")}
+        </Text>
+      )}
     </>
+  );
+};
+
+// Wrapper component with I18nProvider
+const GenericView = () => {
+  return (
+    <I18nProvider>
+      <GenericViewContent />
+    </I18nProvider>
   );
 };
 

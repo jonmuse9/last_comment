@@ -1,0 +1,153 @@
+{
+  "adminPage": {
+    "title": "Flowzira 설정"
+  },
+  "gettingStarted": {
+    "title": "시작하기"
+  },
+  "projectSettings": {
+    "title": "Flowzira 설정"
+  },
+  "customField": {
+    "lastComment": {
+      "name": "Flowzira 마지막 댓글",
+      "description": "이슈의 마지막 댓글 내용을 표시합니다."
+    },
+    "commentCount": {
+      "name": "Flowzira 댓글 수",
+      "description": "이슈의 총 댓글 수."
+    },
+    "internalCommentCount": {
+      "name": "Flowzira 내부 댓글 수",
+      "description": "이슈의 내부 댓글 수."
+    },
+    "lastCommentDate": {
+      "name": "Flowzira 마지막 댓글 날짜",
+      "description": "이슈의 마지막 댓글 날짜."
+    },
+    "firstCommentDate": {
+      "name": "Flowzira 첫 번째 댓글 날짜",
+      "description": "이슈의 첫 번째 댓글 날짜."
+    },
+    "lastCommenter": {
+      "name": "Flowzira 마지막 댓글 작성자",
+      "description": "이슈에 마지막으로 댓글을 작성한 사람."
+    },
+    "lastCommenterIsAssignee": {
+      "name": "Flowzira 마지막 댓글 작성자가 담당자",
+      "description": "마지막 댓글 작성자가 담당자인지 여부."
+    },
+    "lastCommenterIsReporter": {
+      "name": "Flowzira 마지막 댓글 작성자가 보고자",
+      "description": "마지막 댓글 작성자가 보고자인지 여부."
+    },
+    "lastCommenterIsCreator": {
+      "name": "Flowzira 마지막 댓글 작성자가 생성자",
+      "description": "마지막 댓글 작성자가 생성자인지 여부."
+    },
+    "lastAssigneeCommentDate": {
+      "name": "Flowzira 담당자 마지막 댓글 날짜",
+      "description": "담당자의 마지막 댓글 날짜."
+    },
+    "firstComment": {
+      "name": "Flowzira 첫 번째 댓글",
+      "description": "이슈의 첫 번째 댓글."
+    },
+    "firstCommenter": {
+      "name": "Flowzira 첫 번째 댓글 작성자",
+      "description": "첫 번째 댓글을 작성한 사람."
+    },
+    "firstCommenterIsAssignee": {
+      "name": "Flowzira 첫 번째 댓글 작성자가 담당자",
+      "description": "첫 번째 댓글 작성자가 담당자인지 여부."
+    },
+    "firstCommenterIsReporter": {
+      "name": "Flowzira 첫 번째 댓글 작성자가 보고자",
+      "description": "첫 번째 댓글 작성자가 보고자인지 여부."
+    },
+    "firstCommenterIsCreator": {
+      "name": "Flowzira 첫 번째 댓글 작성자가 생성자",
+      "description": "첫 번째 댓글 작성자가 생성자인지 여부."
+    },
+    "publicCommentCount": {
+      "name": "Flowzira 공개 댓글 수",
+      "description": "이슈의 공개 댓글 수"
+    },
+    "agentReplyCount": {
+      "name": "Flowzira 에이전트 답변 수",
+      "description": "이슈의 에이전트 답변 수"
+    },
+    "customerReplyCount": {
+      "name": "Flowzira 고객 답변 수",
+      "description": "이슈의 고객 답변 수"
+    },
+    "lastCommenterIsCustomer": {
+      "name": "Flowzira 마지막 댓글 작성자가 고객",
+      "description": "이슈의 마지막 댓글 작성자가 고객인지 여부"
+    },
+    "lastCommentIsInternal": {
+      "name": "Flowzira 마지막 댓글이 내부용",
+      "description": "이슈의 마지막 댓글이 내부용인지 여부"
+    },
+    "lastCommentIsAgentResponse": {
+      "name": "Flowzira 마지막 댓글이 에이전트 답변",
+      "description": "이슈의 마지막 댓글이 에이전트 답변인지 여부"
+    },
+    "lastAgentResponseDate": {
+      "name": "Flowzira 마지막 에이전트 답변 날짜",
+      "description": "이슈의 마지막 에이전트 답변 날짜"
+    },
+    "lastCustomerCommentDate": {
+      "name": "Flowzira 고객 마지막 댓글 날짜",
+      "description": "이슈의 고객 마지막 댓글 날짜"
+    }
+  },
+  "ui": {
+    "buttons": {
+      "save": "저장",
+      "cancel": "취소",
+      "saving": "저장 중...",
+      "submit": "제출",
+      "syncAll": "모든 이슈 동기화",
+      "forceStop": "🚨 긴급: 모든 동기화 강제 중단",
+      "forceReset": "강제 재설정"
+    },
+    "status": {
+      "error": "오류",
+      "success": "성공",
+      "warning": "경고",
+      "loading": "로딩 중...",
+      "yes": "예",
+      "no": "아니오"
+    },
+    "messages": {
+      "settingsSaved": "설정이 성공적으로 저장되었습니다!",
+      "allVisibilityRequired": "모든 가시성 선택이 필요합니다",
+      "unexpectedResponse": "서버로부터 예상치 못한 응답. 설정이 저장되지 않았을 수 있습니다.",
+      "failedToSave": "설정 저장에 실패했습니다",
+      "unknownError": "알 수 없는 오류",
+      "unableToLoadSettings": "설정을 로드할 수 없습니다. 기본값을 사용합니다.",
+      "failedToInitialize": "애플리케이션 초기화에 실패했습니다.",
+      "failedToInitializeSettings": "애플리케이션 설정 초기화에 실패했습니다.",
+      "licenseNotActive": "라이선스가 활성화되지 않았습니다",
+      "syncCanTakeTime": "동기화 프로세스는 완료하는 데 30분 이상 걸릴 수 있습니다. 동기화가 실패하면 1시간 후에 다시 시도할 수 있습니다.",
+      "emptyValue": "—"
+    },
+    "forms": {
+      "jsmSettings": {
+        "title": "Jira Service Management 설정",
+        "description": "가시성 필터는 사용자 정의 필드 값을 구성하는 데 사용되는 댓글을 정의합니다. 이 기능은 Jira Service Management에서만 유용합니다.",
+        "agentReplyCount": "에이전트 답변 수",
+        "lastCommentAgentResponse": "마지막 댓글 에이전트 답변",
+        "getLastAgentResponseDate": "마지막 에이전트 답변 날짜 가져오기",
+        "pleaseSelectVisibility": "가시성 옵션을 선택해주세요",
+        "pleaseSelectVisibilityFor": "다음에 대한 가시성 옵션을 선택해주세요"
+      }
+    },
+    "visibility": {
+      "allComments": "모든 댓글",
+      "publicOnly": "공개 댓글만",
+      "internalOnly": "내부 댓글만"
+    }
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "adminPage": {
+    "title": "Flowzira 设置"
+  },
+  "gettingStarted": {
+    "title": "入门指南"
+  },
+  "projectSettings": {
+    "title": "Flowzira 设置"
+  },
+  "customField": {
+    "lastComment": {
+      "name": "Flowzira 最新评论",
+      "description": "显示问题的最新评论内容。"
+    },
+    "commentCount": {
+      "name": "Flowzira 评论数量",
+      "description": "问题的评论总数。"
+    },
+    "internalCommentCount": {
+      "name": "Flowzira 内部评论数量",
+      "description": "问题的内部评论数量。"
+    },
+    "lastCommentDate": {
+      "name": "Flowzira 最新评论日期",
+      "description": "问题最新评论的日期。"
+    },
+    "firstCommentDate": {
+      "name": "Flowzira 首次评论日期",
+      "description": "问题首次评论的日期。"
+    },
+    "lastCommenter": {
+      "name": "Flowzira 最新评论者",
+      "description": "对问题进行最新评论的人员。"
+    },
+    "lastCommenterIsAssignee": {
+      "name": "Flowzira 最新评论者是经办人",
+      "description": "最新评论者是否为经办人。"
+    },
+    "lastCommenterIsReporter": {
+      "name": "Flowzira 最新评论者是报告人",
+      "description": "最新评论者是否为报告人。"
+    },
+    "lastCommenterIsCreator": {
+      "name": "Flowzira 最新评论者是创建者",
+      "description": "最新评论者是否为创建者。"
+    },
+    "lastAssigneeCommentDate": {
+      "name": "Flowzira 经办人最新评论日期",
+      "description": "经办人最新评论的日期。"
+    },
+    "firstComment": {
+      "name": "Flowzira 首次评论",
+      "description": "问题的首次评论。"
+    },
+    "firstCommenter": {
+      "name": "Flowzira 首次评论者",
+      "description": "进行首次评论的人员。"
+    },
+    "firstCommenterIsAssignee": {
+      "name": "Flowzira 首次评论者是经办人",
+      "description": "首次评论者是否为经办人。"
+    },
+    "firstCommenterIsReporter": {
+      "name": "Flowzira 首次评论者是报告人",
+      "description": "首次评论者是否为报告人。"
+    },
+    "firstCommenterIsCreator": {
+      "name": "Flowzira 首次评论者是创建者",
+      "description": "首次评论者是否为创建者。"
+    },
+    "publicCommentCount": {
+      "name": "Flowzira 公开评论数量",
+      "description": "问题的公开评论数量"
+    },
+    "agentReplyCount": {
+      "name": "Flowzira 客服回复数量",
+      "description": "问题中客服的回复数量"
+    },
+    "customerReplyCount": {
+      "name": "Flowzira 客户回复数量",
+      "description": "问题中客户的回复数量"
+    },
+    "lastCommenterIsCustomer": {
+      "name": "Flowzira 最新评论者是客户",
+      "description": "问题的最新评论者是否为客户"
+    },
+    "lastCommentIsInternal": {
+      "name": "Flowzira 最新评论是内部评论",
+      "description": "问题的最新评论是否为内部评论"
+    },
+    "lastCommentIsAgentResponse": {
+      "name": "Flowzira 最新评论是客服回复",
+      "description": "问题的最新评论是否为客服回复"
+    },
+    "lastAgentResponseDate": {
+      "name": "Flowzira 最新客服回复日期",
+      "description": "问题中客服最新回复的日期"
+    },
+    "lastCustomerCommentDate": {
+      "name": "Flowzira 客户最新评论日期",
+      "description": "问题中客户最新评论的日期"
+    }
+  },
+  "ui": {
+    "buttons": {
+      "save": "保存",
+      "cancel": "取消",
+      "saving": "保存中...",
+      "submit": "提交",
+      "syncAll": "同步所有问题",
+      "forceStop": "🚨 紧急强制停止所有同步",
+      "forceReset": "强制重置"
+    },
+    "status": {
+      "error": "错误",
+      "success": "成功",
+      "warning": "警告",
+      "loading": "加载中...",
+      "yes": "是",
+      "no": "否"
+    },
+    "messages": {
+      "settingsSaved": "设置保存成功！",
+      "allVisibilityRequired": "必须选择所有可见性选项",
+      "unexpectedResponse": "服务器响应异常。设置可能未保存。",
+      "failedToSave": "保存设置失败",
+      "unknownError": "未知错误",
+      "unableToLoadSettings": "无法加载设置。使用默认值。",
+      "failedToInitialize": "初始化应用程序失败。",
+      "failedToInitializeSettings": "初始化应用程序设置失败。",
+      "licenseNotActive": "许可证未激活",
+      "syncCanTakeTime": "同步过程可能需要超过30分钟才能完成。如果同步失败，可在1小时后重试。",
+      "emptyValue": "—"
+    },
+    "forms": {
+      "jsmSettings": {
+        "title": "Jira Service Management 设置",
+        "description": "可见性过滤器定义用于构建自定义字段值的评论。此功能仅在 Jira Service Management 中有用。",
+        "agentReplyCount": "客服回复数量",
+        "lastCommentAgentResponse": "最新评论客服回复",
+        "getLastAgentResponseDate": "获取最新客服回复日期",
+        "pleaseSelectVisibility": "请选择可见性选项",
+        "pleaseSelectVisibilityFor": "请为以下项选择可见性选项"
+      }
+    },
+    "visibility": {
+      "allComments": "所有评论",
+      "publicOnly": "仅公开评论",
+      "internalOnly": "仅内部评论"
+    }
+  }
+}
