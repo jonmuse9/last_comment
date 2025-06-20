@@ -81,9 +81,13 @@ const AdminPage = () => {
                 <Text>{apiError}</Text>
               </SectionMessage>{" "}
             </Box>
-          )}
+          )}{" "}
           {/* Sync Section */}
-          <ProjectAdminSync isLoading={isLoading} isGlobalAdmin={true} />
+          <ProjectAdminSync
+            isLoading={isLoading}
+            isGlobalAdmin={true}
+            licenseActive={licenseActive}
+          />
         </Box>
         <Box xcss={xcss({ flexGrow: 0.25, ...boxBorderStyle })}>
           <LogoWithLinks

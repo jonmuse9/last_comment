@@ -22,6 +22,7 @@ const ProjectAdminSync = ({
   projectKey,
   isLoading,
   isGlobalAdmin = false,
+  licenseActive = true,
 }) => {
   const [jqlQuery, setJqlQuery] = useState("");
   const [syncState, setSyncState] = useState({
@@ -217,8 +218,16 @@ const ProjectAdminSync = ({
         {isGlobalAdmin ? "work items" : "old work items"} to have up-to-date
         values. Issues will automatically have the calculated values applied
         when comments are added or deleted.
-      </Text>
+      </Text>{" "}
       <Box xcss={xcss({ margin: "space.100" })}>
+        {!licenseActive && (
+          <SectionMessage appearance="error">
+            <Text>
+              Sync functionality is disabled due to invalid license. Please
+              ensure your license is active to use the sync feature.
+            </Text>
+          </SectionMessage>
+        )}
         <SectionMessage appearance="info">
           <Text>
             This sync tool can only process a maximum of 5,000 work items and
@@ -236,10 +245,10 @@ const ProjectAdminSync = ({
             <Stack space="space.100">
               <Label labelFor="jql-query-input">
                 JQL Query {isGlobalAdmin ? "(required)" : "(optional)"}
-              </Label>
+              </Label>{" "}
               <Textfield
                 id="jql-query-input"
-                isDisabled={syncState.isRunning}
+                isDisabled={syncState.isRunning || !licenseActive}
                 value={jqlQuery}
                 onChange={handleJqlQueryChange}
                 placeholder={
@@ -265,10 +274,11 @@ const ProjectAdminSync = ({
             </Stack>
           </Box>
           <Inline space="space.100" alignInline="end">
+            {" "}
             <Button
               appearance="danger"
               onClick={handleStopSync}
-              isDisabled={!syncState.isRunning}
+              isDisabled={!syncState.isRunning || !licenseActive}
             >
               Stop Sync
             </Button>{" "}
@@ -278,6 +288,7 @@ const ProjectAdminSync = ({
               isDisabled={
                 syncState.isRunning ||
                 isLoading ||
+                !licenseActive ||
                 (isGlobalAdmin ? !jqlQuery.trim() : !projectId)
               }
             >
@@ -377,13 +388,17 @@ const ProjectAdminSync = ({
       <Inline space="space.100">
         {environmentType === "DEVELOPMENT" && (
           <>
-            <Button appearance="danger" onClick={handleForceStopAllSyncs}>
+            <Button
+              appearance="danger"
+              onClick={handleForceStopAllSyncs}
+              isDisabled={!licenseActive}
+            >
               🚨 Emergency Force Stop All Syncs
             </Button>
             <Button
               appearance="danger"
               onClick={handleForceReset}
-              isDisabled={syncState.isRunning}
+              isDisabled={syncState.isRunning || !licenseActive}
             >
               Force Reset
             </Button>

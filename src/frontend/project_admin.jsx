@@ -362,12 +362,13 @@ const AdminPage = () => {
                 </Stack>
               </Form>
             </Box>
-          ) : null}
+          ) : null}{" "}
           {/* --- SYNC SECTION --- */}
           <ProjectAdminSync
             projectId={projectId}
             projectKey={projectKey}
             isLoading={isLoading}
+            licenseActive={licenseActive}
             agentReplyCountSettings={agentReplyCountSettings}
             lastCommentAgentResponseSettings={lastCommentAgentResponseSettings}
             lastAgentResponseDateSettings={lastAgentResponseDateSettings}
